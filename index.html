@@ -1,177 +1,709 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0f14">
+<meta name="msapplication-TileColor" content="#0b0f14">
 
 <title>Alpha Seven Security Services | Professional Security Solutions</title>
 <meta name="description" content="Alpha Seven provides professional residential, corporate and event security services using a structured 7-layer protection framework with 24x7 supervision and rapid response.">
+<meta name="keywords" content="security services Mumbai, residential security, corporate security, event security, security guards, 24x7 security, Powai security services, Hiranandani security">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://alphaseven.in/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Alpha Seven Security Services | Professional Security Solutions">
+<meta property="og:description" content="7-layer protection framework for residential, corporate & event security in Mumbai">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alphaseven.in">
+<meta property="og:image" content="https://alphaseven.in/og-image.jpg">
+<meta property="og:site_name" content="Alpha Seven Security Services">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alpha Seven Security Services">
+<meta name="twitter:description" content="Professional security with 7-layer protection framework">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- ================= SCHEMA ================= -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"Alpha Seven Security Services",
-  "url":"https://alphaseven.in",
-  "address":{
-    "@type":"PostalAddress",
-    "streetAddress":"1090 Heera Panna Mall, Hiranandani Powai",
-    "addressLocality":"Mumbai",
-    "postalCode":"400076",
-    "addressCountry":"IN"
-  },
-  "contactPoint":{
-    "@type":"ContactPoint",
-    "telephone":"+91-9892000577",
-    "contactType":"customer service",
-    "areaServed":"IN",
-    "availableLanguage":["English","Hindi"]
-  }
-}
-</script>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Service",
-  "provider":{"@type":"Organization","name":"Alpha Seven Security Services"},
-  "serviceType":[
-    "Residential Security Services",
-    "Corporate Security Services",
-    "Event Security Services"
-  ],
-  "areaServed":"IN"
-}
-</script>
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
 <style>
-:root{
-  --bg:#0b0f14;
-  --panel:#121822;
-  --gold:#d4af37;
-  --muted:#9aa4b2;
-  --green:#25D366;
-  --border:#1f2937;
+:root {
+  --bg: #0b0f14;
+  --panel: #121822;
+  --gold: #d4af37;
+  --gold-light: rgba(212, 175, 55, 0.1);
+  --muted: #b8c2cc;
+  --green: #25D366;
+  --border: #1f2937;
+  --accent: #3b82f6;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,system-ui,sans-serif;
-  background:var(--bg);
-  color:#fff;
-  line-height:1.6;
-}
-a{color:inherit;text-decoration:none}
-.container{max-width:1200px;margin:auto;padding:80px 20px}
-h1,h2,h3{margin:0 0 14px}
-p{margin:0 0 14px;color:var(--muted)}
 
-.btn{
-  display:inline-block;
-  padding:14px 26px;
-  border-radius:6px;
-  font-weight:600;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.btn-primary{background:var(--gold);color:#000}
-.btn-outline{border:1px solid var(--gold);color:var(--gold)}
 
-.card{
-  background:var(--panel);
-  border-radius:10px;
-  padding:28px;
-  border:1px solid var(--border);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #c19b2a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--gold);
+  color: black;
+  padding: 8px 16px;
+  z-index: 10000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 15, 20, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--gold);
 }
 
 /* HERO */
-header{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  background:radial-gradient(circle at 30% 30%,rgba(212,175,55,.18),transparent 60%);
+header {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, .18), transparent 60%);
 }
-.hero{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:50px;
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
 }
-h1{
-  font-size:clamp(36px,5vw,56px);
-  line-height:1.1;
+
+h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
 }
-h1 span{color:var(--gold)}
+
+h1 span {
+  color: var(--gold);
+}
 
 /* TRUST STRIP */
-.trust-strip{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:20px;
-  background:#0f1622;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:30px 20px;
-  text-align:center;
-  font-size:14px;
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  background: #0f1622;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 7 LAYER SECTION - ENHANCED */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: clamp(32px, 4vw, 42px);
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.layers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.layers-container:before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--accent));
+  z-index: 0;
+}
+
+.layer-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.layer-number {
+  width: 60px;
+  height: 60px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.layer-content {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--gold);
+}
+
+.layer-content:hover {
+  transform: translateX(10px);
+  border-left: 4px solid var(--accent);
+  background: rgba(18, 24, 34, 0.8);
+}
+
+.layer-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.layer-icon {
+  font-size: 1.8rem;
+  color: var(--gold);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-light);
+  border-radius: 10px;
+}
+
+.layer-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.layer-description {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.layer-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.feature-tag {
+  background: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Alternative Grid Layout */
+.layers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.layer-card {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.layer-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--gold), var(--accent));
+}
+
+.layer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.layer-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.layer-card-number {
+  width: 50px;
+  height: 50px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.layer-card-icon {
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+
+.layer-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.layer-card p {
+  margin-bottom: 20px;
+  line-height: 1.7;
 }
 
 /* SERVICES GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-/* COMPARISON */
-.compare{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px;
+.service-card {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 35px 30px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  margin-bottom: 20px;
+}
+
+.service-features {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.service-features li {
+  color: var(--muted);
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.service-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* WHY CHOOSE US */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 /* CTA */
-.cta-block{
-  text-align:center;
-  background:linear-gradient(135deg,#1a2332,#0f1622);
-  border:1px solid var(--border);
-  padding:50px 20px;
-  border-radius:12px;
+.cta-block {
+  text-align: center;
+  background: linear-gradient(135deg, #1a2332, #0f1622);
+  border: 1px solid var(--border);
+  padding: 60px 20px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-block:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.cta-block > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-block h2 {
+  font-size: clamp(32px, 4vw, 42px);
+  margin-bottom: 20px;
+}
+
+.cta-block p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
 }
 
 /* FOOTER */
-footer{
-  background:#06090d;
-  padding:50px 20px;
-  color:var(--muted);
-  font-size:14px;
+footer {
+  background: #06090d;
+  padding: 50px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:var(--green);
-  color:#000;
-  padding:14px 20px;
-  border-radius:30px;
-  font-weight:600;
-  z-index:99;
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--green);
+  color: #000;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
 }
 
-@media(max-width:900px){
-  .hero,.compare{grid-template-columns:1fr}
+.whatsapp:hover,
+.whatsapp:focus {
+  background: #1da851;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .container {
+    padding: 60px 20px;
+  }
+  
+  .layers-container:before {
+    left: 25px;
+  }
+  
+  .layer-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .layer-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .whatsapp span {
+    display: none;
+  }
+  
+  .whatsapp:after {
+    content: "💬";
+  }
+  
+  .layers-grid,
+  .services-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 12px 20px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .btn-outline {
+    margin-left: 0 !important;
+  }
+  
+  .trust-strip {
+    grid-template-columns: 1fr;
+  }
+  
+  .layer-content,
+  .layer-card,
+  .service-card,
+  .feature-card {
+    padding: 20px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav class="navbar" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <i class="fas fa-shield-alt"></i> Alpha Seven
+    </div>
+    <div class="nav-links">
+      <a href="#framework" class="nav-link">Framework</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main id="main-content">
 
 <!-- HERO -->
 <header>
@@ -181,141 +713,566 @@ footer{
       <p>
         Alpha Seven delivers professional security services using a structured,
         multi-layer protection framework designed to prevent, detect, and respond.
+        Our 7-layer approach ensures comprehensive coverage for residential, corporate, and event security.
       </p>
-      <a class="btn btn-primary" href="https://wa.me/919892000577">Request Security Assessment</a>
+      <a class="btn btn-primary" href="https://wa.me/919892000577" aria-label="Request Security Assessment via WhatsApp">
+        <i class="fab fa-whatsapp"></i> Request Security Assessment
+      </a>
+      <a class="btn btn-outline" href="#framework" style="margin-left: 16px;">
+        <i class="fas fa-layer-group"></i> View Our Framework
+      </a>
     </div>
 
     <div class="card">
-      <h3>Operational Readiness</h3>
-      <ul>
+      <h3><i class="fas fa-clipboard-check"></i> Operational Readiness</h3>
+      <ul aria-label="Operational readiness features">
         <li>24×7 Supervision & Escalation</li>
         <li>Trained & Verified Guards</li>
         <li>Rapid Incident Response</li>
+        <li>Regular Security Audits</li>
+        <li>Real-time Reporting</li>
       </ul>
     </div>
   </div>
 </header>
 
 <!-- TRUST STRIP -->
-<div class="trust-strip">
-  <div>✔ Background Verified Staff</div>
-  <div>✔ SOP & Compliance Driven</div>
-  <div>✔ Supervisor-Led Teams</div>
-  <div>✔ Incident Reporting</div>
+<div class="trust-strip" role="region" aria-label="Trust Indicators">
+  <div><i class="fas fa-user-check"></i> Background Verified Staff</div>
+  <div><i class="fas fa-clipboard-list"></i> SOP & Compliance Driven</div>
+  <div><i class="fas fa-user-tie"></i> Supervisor-Led Teams</div>
+  <div><i class="fas fa-file-alt"></i> Incident Reporting</div>
+  <div><i class="fas fa-clock"></i> 24×7 Monitoring</div>
+  <div><i class="fas fa-bolt"></i> Rapid Response</div>
 </div>
 
-<!-- 7 LAYER -->
-<section class="container">
-  <h2>7-Layer Protection Framework</h2>
-  <div class="grid">
-    <div class="card">01 — Risk Assessment & Planning</div>
-    <div class="card">02 — Trained Human Presence</div>
-    <div class="card">03 — Surveillance & Technology</div>
-    <div class="card">04 — Access Governance</div>
-    <div class="card">05 — Monitoring & Patrol</div>
-    <div class="card">06 — Incident Response</div>
-    <div class="card">07 — Continuous Oversight</div>
+<!-- 7 LAYER FRAMEWORK - ENHANCED -->
+<section class="container" id="framework" aria-labelledby="framework-heading">
+  <div class="section-header">
+    <h2 id="framework-heading">Our 7-Layer Protection Framework</h2>
+    <p class="section-subtitle">
+      A comprehensive, multi-layered security approach that goes beyond traditional guard services.
+      Each layer builds upon the previous one to create an impenetrable security ecosystem.
+    </p>
+  </div>
+
+  <!-- Option 1: Vertical Timeline Layout -->
+  <div class="layers-container">
+    <!-- Layer 1 -->
+    <div class="layer-row">
+      <div class="layer-number">01</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3>Risk Assessment & Planning</h3>
+        </div>
+        <p class="layer-description">
+          Comprehensive security audit identifying vulnerabilities, threats, and critical assets.
+          Custom security plan development with measurable objectives and protocols.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">Site Vulnerability Analysis</span>
+          <span class="feature-tag">Threat Identification</span>
+          <span class="feature-tag">Custom Security Plan</span>
+          <span class="feature-tag">Compliance Review</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div class="layer-row">
+      <div class="layer-number">02</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Trained Human Presence</h3>
+        </div>
+        <p class="layer-description">
+          Professionally trained security personnel with background verification, specialized training,
+          and continuous skill development to handle diverse security scenarios.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">Background Verified Guards</span>
+          <span class="feature-tag">Specialized Training</span>
+          <span class="feature-tag">Regular Drills</span>
+          <span class="feature-tag">Skill Certification</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 3 -->
+    <div class="layer-row">
+      <div class="layer-number">03</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3>Surveillance & Technology</h3>
+        </div>
+        <p class="layer-description">
+          Integration of advanced security technology including CCTV surveillance, access control systems,
+          intrusion detection, and real-time monitoring solutions.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">CCTV Monitoring</span>
+          <span class="feature-tag">Access Control Systems</span>
+          <span class="feature-tag">Intrusion Detection</span>
+          <span class="feature-tag">Remote Monitoring</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 4 -->
+    <div class="layer-row">
+      <div class="layer-number">04</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-door-closed"></i>
+          </div>
+          <h3>Access Governance</h3>
+        </div>
+        <p class="layer-description">
+          Strict access control protocols, visitor management systems, and entry/exit monitoring
+          to regulate movement and prevent unauthorized access.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">Visitor Management</span>
+          <span class="feature-tag">Entry/Exit Logs</span>
+          <span class="feature-tag">ID Verification</span>
+          <span class="feature-tag">Restricted Zone Control</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 5 -->
+    <div class="layer-row">
+      <div class="layer-number">05</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-walking"></i>
+          </div>
+          <h3>Monitoring & Patrol</h3>
+        </div>
+        <p class="layer-description">
+          Proactive surveillance through scheduled patrols, random checks, and continuous monitoring
+          to detect and prevent security breaches before they occur.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">Scheduled Patrols</span>
+          <span class="feature-tag">Random Security Checks</span>
+          <span class="feature-tag">Activity Monitoring</span>
+          <span class="feature-tag">Incident Prevention</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 6 -->
+    <div class="layer-row">
+      <div class="layer-number">06</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-first-aid"></i>
+          </div>
+          <h3>Incident Response</h3>
+        </div>
+        <p class="layer-description">
+          Rapid response protocols with trained personnel ready to handle emergencies,
+          security breaches, and crisis situations with minimal delay and maximum effectiveness.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">Emergency Response</span>
+          <span class="feature-tag">Crisis Management</span>
+          <span class="feature-tag">Escalation Protocols</span>
+          <span class="feature-tag">Coordination with Authorities</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 7 -->
+    <div class="layer-row">
+      <div class="layer-number">07</div>
+      <div class="layer-content">
+        <div class="layer-header">
+          <div class="layer-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Continuous Oversight</h3>
+        </div>
+        <p class="layer-description">
+          Ongoing evaluation, performance reviews, security audits, and system improvements
+          to ensure long-term effectiveness and adaptation to evolving threats.
+        </p>
+        <div class="layer-features">
+          <span class="feature-tag">Performance Audits</span>
+          <span class="feature-tag">System Improvements</span>
+          <span class="feature-tag">Client Feedback Integration</span>
+          <span class="feature-tag">Threat Evolution Tracking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Framework Summary -->
+  <div class="card" style="margin-top: 60px; text-align: center; background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(59, 130, 246, 0.05));">
+    <h3><i class="fas fa-sitemap"></i> Integrated Security Ecosystem</h3>
+    <p style="max-width: 800px; margin: 0 auto;">
+      Unlike traditional security services that focus only on manpower, our 7-layer framework creates an integrated
+      security ecosystem where each layer reinforces the others, providing comprehensive protection that adapts to
+      your specific needs and evolves with emerging threats.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <div style="font-size: 2rem; color: var(--gold); font-weight: 700;">100%</div>
+        <div style="font-size: 0.9rem; color: var(--muted);">Security Coverage</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 2rem; color: var(--gold); font-weight: 700;">24/7</div>
+        <div style="font-size: 0.9rem; color: var(--muted);">Monitoring</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 2rem; color: var(--gold); font-weight: 700;">30min</div>
+        <div style="font-size: 0.9rem; color: var(--muted);">Average Response Time</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 2rem; color: var(--gold); font-weight: 700;">7-Layer</div>
+        <div style="font-size: 0.9rem; color: var(--muted);">Protection Framework</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="container">
-  <h2>Our Security Services</h2>
-  <div class="grid">
-    <div class="card"><h3>Residential Security</h3><p>Societies, apartments, villas, gated communities.</p></div>
-    <div class="card"><h3>Corporate Security</h3><p>Offices, IT parks, commercial assets.</p></div>
-    <div class="card"><h3>Event Security</h3><p>Private, corporate, and high-profile events.</p></div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE -->
-<section class="container">
-  <h2>Why Choose Alpha Seven</h2>
-  <p style="max-width:720px">
-    Alpha Seven is not a guard-supply agency. We operate as a security partner,
-    delivering accountability, structure, and operational discipline.
-  </p>
-
-  <div class="grid" style="margin-top:40px">
-    <div class="card">
-      <h3>Structured Security Framework</h3>
-      <p>
-        Every deployment follows our 7-layer protection model —
-        from planning and access control to incident response and audits.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Supervisor-Led Teams</h3>
-      <p>
-        Dedicated supervisors conduct checks, enforce SOPs,
-        and remain accountable for on-site performance.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>24×7 Operations</h3>
-      <p>
-        Continuous monitoring and escalation ensure
-        incidents are detected early and handled immediately.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Rapid Incident Response</h3>
-      <p>
-        Defined response protocols and trained personnel
-        minimize risk, damage, and downtime.
-      </p>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:50px">
-    <strong>Alpha Seven Difference</strong>
-    <p>
-      Most agencies sell manpower. Alpha Seven delivers security operations
-      focused on prevention, control, and accountability.
+<section class="container" id="services" aria-labelledby="services-heading">
+  <div class="section-header">
+    <h2 id="services-heading">Our Security Services</h2>
+    <p class="section-subtitle">
+      Tailored security solutions for diverse needs, backed by our comprehensive 7-layer protection framework.
     </p>
   </div>
 
-  <div style="margin-top:40px">
-    <a class="btn btn-primary" href="https://wa.me/919892000577">Speak to a Security Advisor</a>
-    <a class="btn btn-outline" href="tel:+919892000577" style="margin-left:16px">Call +91 9892000577</a>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="fas fa-home"></i>
+      </div>
+      <h3>Residential Security</h3>
+      <p>Complete protection for housing societies, apartments, villas, and gated communities.</p>
+      <div class="service-features">
+        <li>Society Entry/Exit Control</li>
+        <li>Visitor Management</li>
+        <li>Patrol & Surveillance</li>
+        <li>Emergency Response</li>
+        <li>Community Safety Programs</li>
+      </div>
+      <a href="https://wa.me/919892000577?text=I'm interested in Residential Security Services" class="btn btn-outline" style="margin-top: 20px;">
+        <i class="fas fa-info-circle"></i> Learn More
+      </a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="fas fa-building"></i>
+      </div>
+      <h3>Corporate Security</h3>
+      <p>Professional security for offices, IT parks, commercial complexes, and industrial facilities.</p>
+      <div class="service-features">
+        <li>Access Control Systems</li>
+        <li>Asset Protection</li>
+        <li>Employee Safety</li>
+        <li>Crisis Management</li>
+        <li>Compliance Security</li>
+      </div>
+      <a href="https://wa.me/919892000577?text=I'm interested in Corporate Security Services" class="btn btn-outline" style="margin-top: 20px;">
+        <i class="fas fa-info-circle"></i> Learn More
+      </a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <h3>Event Security</h3>
+      <p>Comprehensive security for private parties, corporate events, concerts, and high-profile gatherings.</p>
+      <div class="service-features">
+        <li>Crowd Management</li>
+        <li>VIP Protection</li>
+        <li>Access Control</li>
+        <li>Emergency Planning</li>
+        <li>Rapid Response Teams</li>
+      </div>
+      <a href="https://wa.me/919892000577?text=I'm interested in Event Security Services" class="btn btn-outline" style="margin-top: 20px;">
+        <i class="fas fa-info-circle"></i> Learn More
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="container">
+  <div class="section-header">
+    <h2>Why Choose Alpha Seven</h2>
+    <p class="section-subtitle">
+      We're not just another security agency. We're your strategic security partner,
+      delivering accountability, structure, and operational excellence.
+    </p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-sitemap"></i>
+      </div>
+      <h3>Structured Security Framework</h3>
+      <p>
+        Every deployment follows our proven 7-layer protection model — from initial risk assessment
+        to continuous oversight and improvement.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-user-tie"></i>
+      </div>
+      <h3>Supervisor-Led Teams</h3>
+      <p>
+        Dedicated supervisors conduct regular checks, enforce SOPs, and remain accountable
+        for on-site performance and incident management.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <h3>24×7 Operations Center</h3>
+      <p>
+        Continuous monitoring and rapid escalation ensure incidents are detected early
+        and handled immediately by trained professionals.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-bolt"></i>
+      </div>
+      <h3>Rapid Incident Response</h3>
+      <p>
+        Defined response protocols and trained personnel minimize risk, damage,
+        and downtime during security incidents.
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 50px; border-left: 4px solid var(--gold);">
+    <div style="display: flex; align-items: flex-start; gap: 20px;">
+      <div style="font-size: 2.5rem; color: var(--gold);">
+        <i class="fas fa-star"></i>
+      </div>
+      <div>
+        <strong style="font-size: 1.2rem;">The Alpha Seven Difference</strong>
+        <p style="margin-top: 10px;">
+          Most agencies sell manpower. Alpha Seven delivers complete security operations
+          focused on prevention, control, and accountability. We become an extension of
+          your organization, not just a service provider.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; text-align: center;">
+    <a class="btn btn-primary" href="https://wa.me/919892000577" aria-label="Speak to a Security Advisor via WhatsApp">
+      <i class="fab fa-whatsapp"></i> Speak to a Security Advisor
+    </a>
+    <a class="btn btn-outline" href="tel:+919892000577" style="margin-left: 16px" aria-label="Call Alpha Seven at +91 9892000577">
+      <i class="fas fa-phone-alt"></i> Call +91 9892000577
+    </a>
   </div>
 </section>
 
 <!-- CASE STUDIES -->
 <section class="container">
-  <h2>Real-World Outcomes</h2>
-  <div class="grid">
-    <div class="card">Residential society incidents reduced to zero within 6 months.</div>
-    <div class="card">Corporate facility secured with 24×7 access control.</div>
-    <div class="card">High-profile event executed with zero security breaches.</div>
+  <div class="section-header">
+    <h2>Real-World Security Outcomes</h2>
+    <p class="section-subtitle">
+      Proven results across different sectors, delivering measurable security improvements.
+    </p>
+  </div>
+
+  <div class="layers-grid">
+    <div class="layer-card">
+      <div class="layer-card-header">
+        <div class="layer-card-number">01</div>
+        <h3>Residential Society Security</h3>
+      </div>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Challenge:</strong> Multiple unauthorized entries and theft incidents
+      </p>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Solution:</strong> Implemented 7-layer framework with access control
+      </p>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Result:</strong> Zero security incidents within 6 months
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-header">
+        <div class="layer-card-number">02</div>
+        <h3>Corporate Facility Security</h3>
+      </div>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Challenge:</strong> Unauthorized access to sensitive areas
+      </p>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Solution:</strong> Multi-layer access governance and monitoring
+      </p>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Result:</strong> 100% access compliance, zero breaches
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-header">
+        <div class="layer-card-number">03</div>
+        <h3>High-Profile Event Security</h3>
+      </div>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Challenge:</strong> 500+ attendees with VIP presence
+      </p>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Solution:</strong> Comprehensive event security plan
+      </p>
+      <p><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 8px;"></i>
+        <strong>Result:</strong> Flawless execution, zero security incidents
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- ADS CTA -->
+<!-- FINAL CTA -->
 <section class="container cta-block">
-  <h2>Need Immediate Security Coverage?</h2>
-  <p>Get a professional assessment within hours.</p>
-  <a class="btn btn-primary" href="https://wa.me/919892000577">WhatsApp Alpha Seven</a>
+  <h2>Ready to Transform Your Security?</h2>
+  <p>Get a professional security assessment within 24 hours. Our experts will analyze your current setup and provide a customized 7-layer protection plan.</p>
+  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+    <a class="btn btn-primary" href="https://wa.me/919892000577" style="padding: 16px 32px;">
+      <i class="fab fa-whatsapp"></i> WhatsApp for Immediate Response
+    </a>
+    <a class="btn btn-outline" href="tel:+919892000577" style="padding: 16px 32px;">
+      <i class="fas fa-phone-alt"></i> Call Now: +91 9892000577
+    </a>
+  </div>
+  <p style="margin-top: 20px; font-size: 0.9rem;">
+    <i class="fas fa-clock"></i> Available 24×7 | <i class="fas fa-shield-alt"></i> Free Initial Assessment
+  </p>
 </section>
 
-<footer>
-  <div class="container">
-    <strong>Alpha Seven Security Services</strong><br>
-    1090 Heera Panna Mall, Hiranandani Powai, Mumbai – 400076<br>
-    📞 +91 9892000577 | +91 9004991677<br>
+</main>
 
-     <a href="/privacy-policy.html">Privacy Policy</a> |
-    <a href="/terms.html">Terms & Conditions</a><br><br>
+<footer id="contact">
+  <div class="footer-container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+      <div>
+        <h3 style="color: white; margin-bottom: 20px;">
+          <i class="fas fa-shield-alt"></i> Alpha Seven Security
+        </h3>
+        <p>Professional security services with a structured 7-layer protection framework for comprehensive safety solutions.</p>
+      </div>
+      
+      <div>
+        <h4 style="color: white; margin-bottom: 20px;">Contact Info</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 1090 Heera Panna Mall, Hiranandani Powai, Mumbai – 400076</p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+919892000577" style="color: inherit;">+91 9892000577</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+919004991677" style="color: inherit;">+91 9004991677</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919892000577" style="color: inherit;">WhatsApp: +91 9892000577</a></p>
+      </div>
+      
+      <div>
+        <h4 style="color: white; margin-bottom: 20px;">Quick Links</h4>
+        <p><a href="#framework" style="color: inherit;">7-Layer Framework</a></p>
+        <p><a href="#services" style="color: inherit;">Our Services</a></p>
+        <p><a href="/privacy-policy.html" style="color: inherit;">Privacy Policy</a></p>
+        <p><a href="/terms.html" style="color: inherit;">Terms & Conditions</a></p>
+      </div>
+    </div>
     
-    © 2026 Alpha Seven. All rights reserved.
+    <div style="border-top: 1px solid var(--border); padding-top: 20px; text-align: center;">
+      © <span id="current-year">2026</span> Alpha Seven Security Services. All rights reserved.
+      <p style="margin-top: 10px; font-size: 0.9rem;">
+        <i class="fas fa-certificate"></i> Licensed & Certified Security Provider
+      </p>
+    </div>
   </div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919892000577">WhatsApp Us</a>
+<!-- WhatsApp Button -->
+<a class="whatsapp" href="https://wa.me/919892000577" aria-label="Chat with Alpha Seven on WhatsApp">
+  <i class="fab fa-whatsapp"></i> WhatsApp Us
+</a>
+
+<script>
+  // Update copyright year automatically
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Add animation to layer cards on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe layer cards for animation
+  document.querySelectorAll('.layer-content, .layer-card, .service-card').forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    card.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(card);
+  });
+  
+  // Simple hover effect for service cards
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.querySelector('.service-icon').style.transform = 'scale(1.1) rotate(5deg)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.querySelector('.service-icon').style.transform = 'scale(1) rotate(0deg)';
+    });
+  });
+</script>
 
 </body>
 </html>
-
