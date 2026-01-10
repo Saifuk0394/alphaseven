@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Security Guard Services | Alpha Seven Security Facilities</title>
+
+<!-- SEO -->
+<meta name="description" content="Alpha Seven Security Facilities provides professional security guard services for residential, commercial and private event environments. Trained manpower, strict vetting and on-ground supervision.">
+<meta name="keywords" content="security guard services, residential security, commercial security guards, event security services, professional security agency">
+<meta name="robots" content="index, follow">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f14;
+  --panel:#141b26;
+  --text:#ffffff;
+  --muted:#9aa3ad;
+  --accent:#c9a24d;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:17px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+.top-bar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 20px;
+  font-size:14px;
+  background:#080b10;
+  color:#ddd;
+}
+
+header{
+  padding:26px 20px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  font-weight:700;
+  letter-spacing:2px;
+}
+.logo span{
+  color:var(--accent);
+  font-size:26px;
+  margin-right:10px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:60px;
+  align-items:center;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:900px;
+  height:900px;
+  background:radial-gradient(circle, rgba(201,162,77,.18), transparent 65%);
+  top:-200px;
+  left:-200px;
+  animation:glowMove 18s ease-in-out infinite alternate;
+  z-index:-1;
+}
+
+.hero-left,.hero-right{
+  opacity:0;
+  transform:translateY(40px);
+  animation:heroEnter .9s ease forwards;
+}
+.hero-right{animation-delay:.25s}
+
+.hero h1{
+  font-size:54px;
+  line-height:1.1;
+  margin:0;
+}
+.hero h1 span{color:var(--accent)}
+.hero p{
+  color:var(--muted);
+  margin:22px 0 36px;
+  max-width:520px;
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,#d8b35a,#b08b3c);
+  color:#000;
+  padding:16px 36px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* FLOAT CARD */
+.float-card{
+  background:linear-gradient(180deg,#141b26,#0b0f14);
+  padding:42px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+.hero-stack{display:flex;flex-direction:column;gap:16px}
+.hero-divider{
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity:.6;
+}
+
+.status{
+  display:flex;
+  gap:14px;
+}
+.status strong{font-size:15px}
+.status small{font-size:13px;color:var(--muted)}
+
+.dot{
+  width:10px;height:10px;border-radius:50%;
+  background:#555;margin-top:6px;
+}
+.dot.active{
+  background:var(--accent);
+  box-shadow:0 0 14px rgba(201,162,77,.7);
+}
+
+.divider{
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+  margin:100px 0;
+  opacity:.5;
+}
+
+.section-title{
+  font-size:30px;
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
+}
+
+.card{
+  background:linear-gradient(180deg,#141b26,#0b0f14);
+  padding:36px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* FRAMEWORK */
+.timeline{
+  border-left:3px solid var(--accent);
+  padding-left:36px;
+}
+.layer{
+  margin-bottom:40px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.6s ease;
+}
+.layer.active{opacity:1;transform:none}
+
+/* CONTACT */
+.form-panel{
+  background:linear-gradient(180deg,#141b26,#0b0f14);
+  padding:48px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.1);
+  max-width:520px;
+}
+
+input,select{
+  width:100%;
+  padding:16px;
+  margin-bottom:14px;
+  background:#0f141c;
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+}
+
+input:focus,select:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
+.submit-btn{
+  width:100%;
+  padding:16px;
+  background:linear-gradient(135deg,#d8b35a,#b08b3c);
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  color:#fff;
+  padding:16px 22px;
+  border-radius:50px;
+  font-weight:700;
+  z-index:10;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:42px}
+  .container{padding:50px 20px}
+}
+
+/* ANIMATIONS */
+@keyframes heroEnter{to{opacity:1;transform:none}}
+@keyframes glowMove{0%{transform:translate(0,0)}100%{transform:translate(220px,120px)}}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <div>🛡 24×7 Professional Security Services</div>
+  <div>📞 +91 919892000577</div>
+</div>
+
+<header>
+  <div class="logo"><span>▲7</span> ALPHA SEVEN</div>
+</header>
+
+<div class="container">
+
+<section class="hero">
+  <div class="hero-left">
+    <h1>Security Is a <span>System</span></h1>
+    <p>Professional security services for residential, commercial and private event environments — delivered through a structured, seven-layer protection framework.</p>
+    <button class="primary-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      Request Security Assessment
+    </button>
+  </div>
+
+  <div class="hero-right">
+    <div class="float-card hero-stack">
+      <h3>Operational Readiness</h3>
+
+      <div class="hero-divider"></div>
+
+      <div class="status">
+        <span class="dot active"></span>
+        <div>
+          <strong>24×7 Operations</strong>
+          <small>Continuous protection & oversight</small>
+        </div>
+      </div>
+
+      <div class="status">
+        <span class="dot"></span>
+        <div>
+          <strong>Supervisor-Led Teams</strong>
+          <small>On-ground command & control</small>
+        </div>
+      </div>
+
+      <div class="status">
+        <span class="dot"></span>
+        <div>
+          <strong>Rapid Response Ready</strong>
+          <small>Defined escalation protocols</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <h2 class="section-title">Operational Excellence</h2>
+  <div class="grid">
+    <div class="card"><h3>Recruitment & Vetting</h3><p>Strict background checks, document verification and physical fitness screening.</p></div>
+    <div class="card"><h3>Training Academy</h3><p>Guarding fundamentals, customer handling, fire safety and first aid.</p></div>
+    <div class="card"><h3>On-Ground Supervision</h3><p>Area officers, surprise checks and daily operational briefings.</p></div>
+    <div class="card"><h3>Diverse Roles</h3><p>Gatehouse, lobby/front desk, parking, material movement and event security.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <h2 class="section-title">7-Layer Protection Framework</h2>
+  <div class="timeline">
+    <div class="layer">01 — Risk Assessment & Planning</div>
+    <div class="layer">02 — Trained Human Presence</div>
+    <div class="layer">03 — Surveillance & Technology</div>
+    <div class="layer">04 — Access Governance</div>
+    <div class="layer">05 — Monitoring & Patrol</div>
+    <div class="layer">06 — Incident Response</div>
+    <div class="layer">07 — Continuous Oversight</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <h2 class="section-title">Request a Security Assessment</h2>
+  <div class="form-panel">
+    <form onsubmit="sendLead(event)">
+      <input id="name" placeholder="Full Name" required>
+      <input id="phone" placeholder="Mobile Number" required>
+      <select id="req">
+        <option>Residential Security</option>
+        <option>Commercial Security</option>
+        <option>Event Security</option>
+        <option>Industrial Security</option>
+      </select>
+      <button class="submit-btn">Send on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+</div>
+
+<footer style="text-align:center;padding:40px;color:var(--muted)">
+© 2026 Alpha Seven Security Facilities
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919892000577" target="_blank">💬 WhatsApp Us</a>
+
+<script>
+/* Framework animation */
+document.addEventListener("scroll",()=>{
+  document.querySelectorAll(".layer").forEach(l=>{
+    if(l.getBoundingClientRect().top < window.innerHeight-100){
+      l.classList.add("active");
+    }
+  });
+});
+
+/* WhatsApp-only lead */
+function sendLead(e){
+  e.preventDefault();
+  const msg =
+`New Security Inquiry
+Name: ${name.value}
+Phone: ${phone.value}
+Requirement: ${req.value}`;
+  window.open("https://wa.me/919892000577?text="+encodeURIComponent(msg),"_blank");
+}
+</script>
+
+</body>
+</html>
