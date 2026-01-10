@@ -2,290 +2,297 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Alpha Seven | Professional Security Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Alpha Seven | Professional Security Services & Risk Management</title>
-
-  <meta name="description" content="Alpha Seven delivers professional security services through a structured seven-layer framework with 24x7 operations, supervisor-led teams, and rapid response." />
+  <meta name="description" content="Alpha Seven provides professional residential, corporate and event security services through a structured 7-layer protection framework." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://alphaseven.in/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Alpha Seven – Professional Security Services" />
-  <meta property="og:description" content="Structured seven-layer security framework delivering 24x7 protection and rapid response." />
-  <meta property="og:url" content="https://alphaseven.in/" />
-  <meta property="og:type" content="website" />
 
   <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#0b0f14;
-      --panel:#111827;
-      --gold:#c9a24d;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --accent:#16a34a;
+      --panel:#121822;
+      --gold:#d4af37;
+      --muted:#9aa4b2;
+      --green:#25D366;
+      --border:#1f2937;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:Poppins,system-ui,-apple-system,sans-serif;
-      background:radial-gradient(800px 400px at 20% 30%,rgba(201,162,77,.12),transparent 60%),var(--bg);
-      color:var(--text);
+      font-family:Inter,system-ui,sans-serif;
+      background:var(--bg);
+      color:#fff;
       line-height:1.6;
     }
-
     a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:auto;padding:64px 20px}
 
+    /* HERO */
     header{
-      padding:18px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      letter-spacing:.08em;
-    }
-
-    .brand span{
-      color:var(--gold);
-    }
-
-    .phone{
-      font-size:14px;
-      color:var(--muted);
-    }
-
-    main{
-      max-width:1200px;
-      margin:auto;
-      padding:80px 24px;
-    }
-
-    .hero{
+      min-height:90vh;
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:60px;
       align-items:center;
-      animation:fadeUp .8s ease-out;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(212,175,55,.18), transparent 60%),
+        #0b0f14;
     }
-
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(20px)}
-      to{opacity:1;transform:none}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:48px;
     }
-
     h1{
       font-size:48px;
-      line-height:1.2;
-      margin:0 0 20px;
+      line-height:1.1;
+      margin:0 0 16px;
     }
-
     h1 span{color:var(--gold)}
-
-    .lead{
-      color:var(--muted);
-      max-width:520px;
-      margin-bottom:32px;
-    }
-
     .cta{
       display:inline-block;
+      margin-top:24px;
+      padding:14px 26px;
       background:var(--gold);
       color:#000;
-      padding:14px 26px;
-      border-radius:10px;
       font-weight:600;
-      transition:.25s;
+      border-radius:6px;
     }
 
-    .cta:hover{transform:translateY(-2px)}
-
-    .card{
-      background:linear-gradient(180deg,#0f1623,#0b1220);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:28px;
-      box-shadow:0 20px 40px rgba(0,0,0,.4);
-    }
-
-    .card h3{
-      margin-top:0;
-      color:var(--gold);
-    }
-
-    .card ul{
-      padding-left:18px;
-      margin:0;
-    }
-
-    section{
-      margin-top:120px;
-    }
-
-    h2{
-      font-size:32px;
-      margin-bottom:16px;
-    }
-
-    .framework{
+    /* TRUST STRIP */
+    .trust-strip{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
       gap:20px;
-      margin-top:40px;
-    }
-
-    .layer{
-      padding:22px;
-      border-radius:14px;
-      background:var(--panel);
-      border:1px solid rgba(255,255,255,.07);
-      transition:.3s;
-    }
-
-    .layer:hover{
-      transform:translateY(-6px);
-      border-color:var(--gold);
-    }
-
-    .layer span{
-      color:var(--gold);
-      font-weight:600;
-      font-size:14px;
-    }
-
-    .layer h4{
-      margin:8px 0;
-    }
-
-    .trust{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:24px;
-      margin-top:40px;
-    }
-
-    footer{
-      margin-top:140px;
-      padding:40px 24px;
-      border-top:1px solid rgba(255,255,255,.08);
+      background:#0f1622;
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      padding:32px 20px;
       text-align:center;
       color:var(--muted);
       font-size:14px;
     }
 
+    /* 7 LAYER */
+    .layers{
+      display:grid;
+      gap:22px;
+    }
+    .layer{
+      background:var(--panel);
+      border-left:4px solid var(--gold);
+      padding:20px;
+      border-radius:6px;
+    }
+
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+    }
+    .service{
+      background:var(--panel);
+      padding:28px;
+      border-radius:8px;
+    }
+
+    /* WHY US */
+    .compare{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+    }
+    .compare div{
+      background:var(--panel);
+      padding:28px;
+      border-radius:8px;
+    }
+
+    /* CASE STUDIES */
+    .cases{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+    }
+
+    /* ADS CTA */
+    .ads-cta{
+      background:linear-gradient(135deg,#1a2332,#0f1622);
+      border:1px solid var(--border);
+      padding:48px;
+      border-radius:12px;
+      text-align:center;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#06090d;
+      padding:48px 20px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* WHATSAPP */
     .whatsapp{
       position:fixed;
-      bottom:24px;
-      right:24px;
-      background:#25D366;
+      right:20px;
+      bottom:20px;
+      background:var(--green);
       color:#fff;
-      padding:14px 18px;
-      border-radius:50px;
+      padding:14px 20px;
+      border-radius:30px;
       font-weight:600;
-      box-shadow:0 10px 30px rgba(0,0,0,.4);
+      z-index:99;
     }
 
     @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
+      .hero-grid,.compare{grid-template-columns:1fr}
       h1{font-size:36px}
     }
   </style>
+
+  <!-- ORGANIZATION + CONTACT SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Alpha Seven",
+    "url":"https://alphaseven.in",
+    "logo":"https://alphaseven.in/logo.png",
+    "contactPoint":{
+      "@type":"ContactPoint",
+      "telephone":"+91-9892000577",
+      "contactType":"customer support",
+      "areaServed":"IN",
+      "availableLanguage":"en"
+    },
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"1090 Heera Panna Mall, Hiranandani, Powai",
+      "addressLocality":"Mumbai",
+      "postalCode":"400076",
+      "addressCountry":"IN"
+    }
+  }
+  </script>
+
+  <!-- SERVICE SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "provider":{"@type":"Organization","name":"Alpha Seven"},
+    "serviceType":[
+      "Residential Security Services",
+      "Corporate Security Services",
+      "Event Security Services"
+    ],
+    "areaServed":"IN"
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-  <div class="brand">
-    ▲7 <span>ALPHA SEVEN</span>
-  </div>
-  <div class="phone">📞 +91 91989200577</div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
+  <div class="container hero-grid">
     <div>
-      <h1>Professional Security Services<br><span>Built as a System</span></h1>
-      <p class="lead">
-        Alpha Seven delivers professional security services through a structured
-        seven-layer protection framework for residential, commercial, and private environments.
-      </p>
-      <a href="#contact" class="cta">Request Security Assessment</a>
+      <h1>Security Is a <span>System</span></h1>
+      <p>Professional security services for residential, corporate and event environments — delivered through a structured 7-layer protection framework.</p>
+      <a class="cta" href="https://wa.me/919892000577">Request Security Assessment</a>
     </div>
-
-    <div class="card">
-      <h3>Operational Readiness</h3>
+    <div class="service">
+      <strong>Operational Readiness</strong>
       <ul>
-        <li>24×7 Operations & Oversight</li>
-        <li>Supervisor-Led Security Teams</li>
+        <li>24×7 Supervision</li>
+        <li>Trained & Verified Guards</li>
         <li>Rapid Incident Response</li>
       </ul>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- ABOUT -->
-  <section>
-    <h2>About Alpha Seven</h2>
-    <p class="lead">
-      Alpha Seven is a professional security services firm focused on proactive risk management,
-      disciplined execution, and structured protection models. We operate with clarity,
-      accountability, and escalation-ready systems.
-    </p>
-  </section>
+<div class="trust-strip">
+  <div>✔ Background Verified Staff</div>
+  <div>✔ SOP & Compliance Driven</div>
+  <div>✔ Supervisor-Led Teams</div>
+  <div>✔ Incident Reporting</div>
+</div>
 
-  <!-- FRAMEWORK -->
-  <section>
-    <h2>Seven-Layer Security Framework</h2>
+<section class="container">
+  <h2>7-Layer Protection Framework</h2>
+  <div class="layers">
+    <div class="layer">01 — Risk Assessment & Planning</div>
+    <div class="layer">02 — Trained Human Presence</div>
+    <div class="layer">03 — Surveillance & Technology</div>
+    <div class="layer">04 — Access Governance</div>
+    <div class="layer">05 — Monitoring & Patrol</div>
+    <div class="layer">06 — Incident Response</div>
+    <div class="layer">07 — Continuous Oversight</div>
+  </div>
+</section>
 
-    <div class="framework">
-      <div class="layer"><span>Layer 1</span><h4>Risk Assessment</h4><p>Threat identification and site evaluation.</p></div>
-      <div class="layer"><span>Layer 2</span><h4>Access Control</h4><p>Perimeter and entry-point management.</p></div>
-      <div class="layer"><span>Layer 3</span><h4>Trained Personnel</h4><p>Disciplined and supervised guards.</p></div>
-      <div class="layer"><span>Layer 4</span><h4>Monitoring</h4><p>Continuous observation and reporting.</p></div>
-      <div class="layer"><span>Layer 5</span><h4>Escalation Protocols</h4><p>Defined response hierarchies.</p></div>
-      <div class="layer"><span>Layer 6</span><h4>Rapid Response</h4><p>Immediate action on incidents.</p></div>
-      <div class="layer"><span>Layer 7</span><h4>Audit & Review</h4><p>Ongoing performance improvement.</p></div>
+<section class="container">
+  <h2>Our Security Services</h2>
+  <div class="services">
+    <div class="service"><strong>Residential Security</strong><p>Societies, villas, gated communities.</p></div>
+    <div class="service"><strong>Corporate Security</strong><p>Offices, IT parks, assets & staff.</p></div>
+    <div class="service"><strong>Event Security</strong><p>Private, corporate & high-risk events.</p></div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Why Alpha Seven</h2>
+  <div class="compare">
+    <div>
+      <h3>Alpha Seven</h3>
+      <ul>
+        <li>System-driven security</li>
+        <li>Supervisor accountability</li>
+        <li>Incident readiness</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- TRUST -->
-  <section>
-    <h2>Why Choose Alpha Seven</h2>
-    <div class="trust">
-      <div class="layer">✔ Structured Security Framework</div>
-      <div class="layer">✔ Supervisor-Led Teams</div>
-      <div class="layer">✔ 24×7 Operations</div>
-      <div class="layer">✔ Rapid Incident Response</div>
+    <div>
+      <h3>Typical Guard Agency</h3>
+      <ul>
+        <li>Manpower only</li>
+        <li>No oversight</li>
+        <li>Reactive approach</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
+<section class="container">
+  <h2>Real-World Outcomes</h2>
+  <div class="cases">
+    <div class="service">Residential society theft incidents reduced to zero in 6 months.</div>
+    <div class="service">Corporate site with 24×7 access control & reporting.</div>
+    <div class="service">High-profile event executed with zero security breaches.</div>
+  </div>
+</section>
 
-<footer id="contact">
-  <p><strong>Alpha Seven</strong></p>
-  <p>Professional Security Services</p>
-  <p>📞 +91 91989200577</p>
-  <p>© 2026 Alpha Seven. All rights reserved.</p>
+<section class="container ads-cta">
+  <h2>Need Immediate Security Coverage?</h2>
+  <p>Get a professional assessment within hours.</p>
+  <a class="cta" href="https://wa.me/919892000577">WhatsApp Alpha Seven</a>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>Alpha Seven</strong></p>
+    <p>1090 Heera Panna Mall, Hiranandani, Powai, Mumbai – 400076</p>
+    <p>📞 +91 9892000577 | +91 9004991677</p>
+    <p>© 2026 Alpha Seven. All rights reserved.</p>
+  </div>
 </footer>
 
-<a class="whatsapp"
-   href="https://wa.me/9191989200577?text=Hello%20Alpha%20Seven%2C%20I%20would%20like%20to%20inquire%20about%20your%20security%20services."
-   target="_blank">
-  WhatsApp Us
-</a>
+<a class="whatsapp" href="https://wa.me/919892000577">WhatsApp Us</a>
 
 </body>
 </html>
