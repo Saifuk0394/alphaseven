@@ -12,7 +12,7 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://alphaseven.in/">
 
-<!-- Open Graph -->
+<!-- Open Graph - Updated with new og-image.jpg -->
 <meta property="og:title" content="Alpha Seven Security Services | Professional Security Solutions">
 <meta property="og:description" content="7-layer protection framework for residential, corporate & event security in Mumbai">
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
 <meta property="og:image:alt" content="Alpha Seven Security Services - Professional 7-Layer Protection Framework">
 <meta property="og:site_name" content="Alpha Seven Security Services">
 
-<!-- Twitter Card -->
+<!-- Twitter Card - Updated with new og-image.jpg -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Alpha Seven Security Services">
 <meta name="twitter:description" content="Professional security with 7-layer protection framework">
@@ -38,9 +38,9 @@
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Favicon -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+<!-- Favicon - Updated with new logo.jpg -->
+<link rel="icon" href="/logo.jpg">
+<link rel="apple-touch-icon" href="/logo.jpg">
 
 <style>
 :root {
@@ -186,6 +186,12 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.nav-brand img {
+  height: 40px;
+  width: auto;
+  border-radius: 4px;
 }
 
 .nav-links {
@@ -697,7 +703,8 @@ footer {
 <nav class="navbar" aria-label="Main Navigation">
   <div class="nav-container">
     <div class="nav-brand">
-      <i class="fas fa-shield-alt"></i> Alpha Seven
+      <img src="/logo.jpg" alt="Alpha Seven Security Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span style="display: none; align-items: center; gap: 10px;"><i class="fas fa-shield-alt"></i> Alpha Seven</span>
     </div>
     <div class="nav-links">
       <a href="#framework" class="nav-link">Framework</a>
@@ -1185,8 +1192,9 @@ footer {
   <div class="footer-container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
       <div>
-        <h3 style="color: white; margin-bottom: 20px;">
-          <i class="fas fa-shield-alt"></i> Alpha Seven Security
+        <h3 style="color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+          <img src="/logo.jpg" alt="Alpha Seven Logo" style="height: 40px; width: auto; border-radius: 4px;">
+          Alpha Seven Security
         </h3>
         <p>Professional security services with a structured 7-layer protection framework for comprehensive safety solutions.</p>
       </div>
@@ -1281,5 +1289,3 @@ footer {
 
 </body>
 </html>
-
-
