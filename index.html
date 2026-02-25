@@ -166,7 +166,7 @@ p {
   top: 0;
   background: rgba(11, 15, 20, 0.95);
   backdrop-filter: blur(10px);
-  padding: 20px 0;
+  padding: 15px 0;
   z-index: 1000;
   border-bottom: 1px solid var(--border);
 }
@@ -181,17 +181,26 @@ p {
 }
 
 .nav-brand {
-  font-size: 1.2rem;
-  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .nav-brand img {
-  height: 40px;
+  height: 45px;
   width: auto;
-  border-radius: 4px;
+  border-radius: 6px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.nav-brand-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -202,6 +211,7 @@ p {
 .nav-link {
   color: var(--muted);
   transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 .nav-link:hover,
@@ -582,6 +592,26 @@ footer {
   margin: auto;
 }
 
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  height: 50px;
+  width: auto;
+  border-radius: 8px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.footer-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+}
+
 /* WHATSAPP */
 .whatsapp {
   position: fixed;
@@ -667,6 +697,14 @@ footer {
   .features-grid {
     grid-template-columns: 1fr;
   }
+  
+  .nav-brand-text {
+    font-size: 1.1rem;
+  }
+  
+  .nav-brand img {
+    height: 40px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -704,7 +742,7 @@ footer {
   <div class="nav-container">
     <div class="nav-brand">
       <img src="/logo.jpg" alt="Alpha Seven Security Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <span style="display: none; align-items: center; gap: 10px;"><i class="fas fa-shield-alt"></i> Alpha Seven</span>
+      <span class="nav-brand-text">Alpha Seven</span>
     </div>
     <div class="nav-links">
       <a href="#framework" class="nav-link">Framework</a>
@@ -1192,10 +1230,10 @@ footer {
   <div class="footer-container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
       <div>
-        <h3 style="color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-          <img src="/logo.jpg" alt="Alpha Seven Logo" style="height: 40px; width: auto; border-radius: 4px;">
-          Alpha Seven Security
-        </h3>
+        <div class="footer-logo">
+          <img src="/logo.jpg" alt="Alpha Seven Logo">
+          <span class="footer-logo-text">Alpha Seven</span>
+        </div>
         <p>Professional security services with a structured 7-layer protection framework for comprehensive safety solutions.</p>
       </div>
       
@@ -1227,7 +1265,7 @@ footer {
 
 <!-- WhatsApp Button -->
 <a class="whatsapp" href="https://wa.me/919892000577" aria-label="Chat with Alpha Seven on WhatsApp">
-  <i class="fab fa-whatsapp"></i> WhatsApp Us
+  <i class="fab fa-whatsapp"></i> <span>WhatsApp Us</span>
 </a>
 
 <script>
