@@ -745,6 +745,13 @@ footer {
    RESPONSIVE
    ===================== */
 @media (max-width: 900px) {
+  /* FIX: remove tall empty space in hero on mobile */
+  header {
+    min-height: auto;
+    padding: 60px 0 40px;
+    align-items: flex-start;
+  }
+
   .hero {
     grid-template-columns: 1fr;
   }
