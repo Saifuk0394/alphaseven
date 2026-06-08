@@ -118,6 +118,9 @@ p {
   color: var(--muted);
 }
 
+/* =====================
+   BUTTONS — FIX: removed margin hacks, clean flex layout
+   ===================== */
 .btn {
   display: inline-block;
   padding: 14px 26px;
@@ -154,6 +157,14 @@ p {
   transform: translateY(-2px);
 }
 
+/* Hero button group — clean flex, no !important hacks */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
 .card {
   background: var(--panel);
   border-radius: 10px;
@@ -183,11 +194,13 @@ p {
   top: 0;
 }
 
-/* Navigation */
+/* =====================
+   NAVIGATION — FIX: hamburger menu added
+   ===================== */
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(11, 15, 20, 0.95);
+  background: rgba(11, 15, 20, 0.97);
   backdrop-filter: blur(10px);
   padding: 15px 0;
   z-index: 1000;
@@ -201,6 +214,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav-brand {
@@ -229,6 +243,7 @@ p {
 .nav-links {
   display: flex;
   gap: 24px;
+  align-items: center;
 }
 
 .nav-link {
@@ -242,7 +257,92 @@ p {
   color: var(--gold);
 }
 
-/* HERO - Enhanced with visual depth */
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger open state — animate to X */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile drawer */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    background: rgba(11, 15, 20, 0.99);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    padding: 16px 20px;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-brand-text {
+    font-size: 1.1rem;
+  }
+
+  .nav-brand img {
+    height: 40px;
+  }
+}
+
+/* HERO */
 header {
   min-height: 90vh;
   display: flex;
@@ -369,6 +469,7 @@ h1 span {
   font-weight: 700;
   color: #000;
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  flex-shrink: 0;
 }
 
 .layer-content {
@@ -403,6 +504,7 @@ h1 span {
   justify-content: center;
   background: var(--gold-light);
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .layer-header h3 {
@@ -479,6 +581,7 @@ h1 span {
   margin-bottom: 8px;
   padding-left: 20px;
   position: relative;
+  list-style: none;
 }
 
 .service-features li:before {
@@ -553,6 +656,14 @@ h1 span {
   margin: 0 auto 30px;
 }
 
+.cta-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
 /* FOOTER */
 footer {
   background: #06090d;
@@ -586,7 +697,9 @@ footer {
   color: white;
 }
 
-/* WHATSAPP */
+/* =====================
+   WHATSAPP — FIX: pulse animation, no double icon
+   ===================== */
 .whatsapp {
   position: fixed;
   right: 20px;
@@ -601,14 +714,21 @@ footer {
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  animation: wapulse 2.5s ease-in-out infinite;
+}
+
+@keyframes wapulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+  50% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.65); }
 }
 
 .whatsapp:hover,
 .whatsapp:focus {
   background: #1da851;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+  animation: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
 /* Focus styles for accessibility */
@@ -621,82 +741,92 @@ footer {
   outline: none;
 }
 
-/* Responsive */
+/* =====================
+   RESPONSIVE
+   ===================== */
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
   }
-  
-  .nav-links {
-    display: none;
-  }
-  
+
   .container {
     padding: 60px 20px;
   }
-  
+
+  /* FIX: hide timeline vertical line on mobile — it misaligns */
   .layers-container:before {
-    left: 25px;
+    display: none;
   }
-  
+
+  /* FIX: stack layer rows cleanly */
   .layer-row {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-  
+
   .layer-number {
     width: 50px;
     height: 50px;
     font-size: 1.3rem;
   }
+
+  .layer-content:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 768px) {
+  /* FIX: trust strip items with left padding for alignment */
   .trust-strip {
     grid-template-columns: repeat(2, 1fr);
     text-align: left;
     padding: 20px;
   }
-  
+
+  .trust-strip > div {
+    padding-left: 10px;
+  }
+
+  /* FIX: WhatsApp — hide text label on mobile, keep only FA icon (no ::after emoji) */
   .whatsapp span {
     display: none;
   }
-  
-  .whatsapp:after {
-    content: "💬";
-  }
-  
+
   .services-grid,
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
-  .nav-brand-text {
-    font-size: 1.1rem;
-  }
-  
-  .nav-brand img {
-    height: 40px;
-  }
 }
 
 @media (max-width: 480px) {
-  .btn {
-    padding: 12px 20px;
+  /* FIX: hero buttons go full-width cleanly */
+  .hero-btns {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-btns .btn {
     width: 100%;
-    margin-bottom: 10px;
+    text-align: center;
   }
-  
-  .btn-outline {
-    margin-left: 0 !important;
+
+  /* FIX: CTA section buttons also stack cleanly */
+  .cta-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
-  
+
+  .cta-btns .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
   .trust-strip {
     grid-template-columns: 1fr;
   }
-  
+
   .layer-content,
-  .layer-card,
   .service-card,
   .feature-card {
     padding: 20px;
@@ -714,10 +844,18 @@ footer {
 <nav class="navbar" aria-label="Main Navigation">
   <div class="nav-container">
     <div class="nav-brand">
-      <img src="/logo.jpg" alt="Alpha Seven Security Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="/logo.jpg" alt="Alpha Seven Security Logo" onerror="this.style.display='none'">
       <span class="nav-brand-text">Alpha Seven</span>
     </div>
-    <div class="nav-links">
+
+    <!-- FIX: hamburger button -->
+    <button class="hamburger" id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks" role="navigation">
       <a href="#framework" class="nav-link">Framework</a>
       <a href="#services" class="nav-link">Services</a>
       <a href="#areas" class="nav-link">Areas</a>
@@ -730,7 +868,7 @@ footer {
 <!-- Main Content -->
 <main id="main-content">
 
-<!-- HERO - Now visually balanced -->
+<!-- HERO -->
 <header>
   <div class="container hero">
     <div>
@@ -740,8 +878,9 @@ footer {
         multi-layer protection framework designed to prevent, detect, and respond.
         Our 7-layer approach ensures comprehensive coverage for residential, corporate, and event security.
       </p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;">
-        <a class="btn btn-primary" href="https://wa.me/919892000577" aria-label="Request Security Assessment via WhatsApp">
+      <!-- FIX: clean flex button group, no !important hacks -->
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27d%20like%20a%20free%20security%20assessment%20for%20my%20property." aria-label="Request Security Assessment via WhatsApp">
           <i class="fab fa-whatsapp"></i> Request Assessment
         </a>
         <a class="btn btn-outline" href="#framework">
@@ -754,7 +893,6 @@ footer {
     </div>
 
     <div>
-      <!-- Larger, more visual right side -->
       <div class="card" style="padding: 40px; text-align: center; border-left: 4px solid var(--gold); margin-bottom: 20px;">
         <div style="font-size: 3.5rem; color: var(--gold); font-weight: 700;">7</div>
         <div style="font-size: 1.3rem; font-weight: 600;">Layers of Protection</div>
@@ -776,7 +914,6 @@ footer {
         </div>
       </div>
 
-      <!-- Small trust grid -->
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
         <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: center;">
           <i class="fas fa-user-check" style="color: var(--gold); font-size: 1.2rem;"></i>
@@ -817,9 +954,7 @@ footer {
       <div class="layer-number">01</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-clipboard-list"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-clipboard-list"></i></div>
           <h3>Risk Assessment & Planning</h3>
         </div>
         <p class="layer-description">
@@ -840,9 +975,7 @@ footer {
       <div class="layer-number">02</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-users"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-users"></i></div>
           <h3>Trained Human Presence</h3>
         </div>
         <p class="layer-description">
@@ -863,9 +996,7 @@ footer {
       <div class="layer-number">03</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-video"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-video"></i></div>
           <h3>Surveillance & Technology</h3>
         </div>
         <p class="layer-description">
@@ -886,9 +1017,7 @@ footer {
       <div class="layer-number">04</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-door-closed"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-door-closed"></i></div>
           <h3>Access Governance</h3>
         </div>
         <p class="layer-description">
@@ -909,9 +1038,7 @@ footer {
       <div class="layer-number">05</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-walking"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-walking"></i></div>
           <h3>Monitoring & Patrol</h3>
         </div>
         <p class="layer-description">
@@ -932,9 +1059,7 @@ footer {
       <div class="layer-number">06</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-first-aid"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-first-aid"></i></div>
           <h3>Incident Response</h3>
         </div>
         <p class="layer-description">
@@ -955,9 +1080,7 @@ footer {
       <div class="layer-number">07</div>
       <div class="layer-content">
         <div class="layer-header">
-          <div class="layer-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
+          <div class="layer-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Continuous Oversight</h3>
         </div>
         <p class="layer-description">
@@ -986,73 +1109,65 @@ footer {
 
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">
-        <i class="fas fa-home"></i>
-      </div>
+      <div class="service-icon"><i class="fas fa-home"></i></div>
       <h3>Residential Security</h3>
       <p>Complete protection for housing societies, apartments, villas, and gated communities.</p>
-      <div class="service-features">
+      <ul class="service-features">
         <li>Society Entry/Exit Control</li>
         <li>Visitor Management</li>
         <li>Patrol & Surveillance</li>
         <li>Emergency Response</li>
         <li>Community Safety Programs</li>
-      </div>
-      <a href="https://wa.me/919892000577?text=I'm interested in Residential Security Services" class="btn btn-outline" style="margin-top: 20px;">
+      </ul>
+      <a href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27m%20interested%20in%20Residential%20Security%20Services." class="btn btn-outline" style="margin-top: 20px;">
         <i class="fas fa-info-circle"></i> Learn More
       </a>
     </div>
 
     <div class="service-card">
-      <div class="service-icon">
-        <i class="fas fa-building"></i>
-      </div>
+      <div class="service-icon"><i class="fas fa-building"></i></div>
       <h3>Corporate Security</h3>
       <p>Professional security for offices, IT parks, commercial complexes, and industrial facilities.</p>
-      <div class="service-features">
+      <ul class="service-features">
         <li>Access Control Systems</li>
         <li>Asset Protection</li>
         <li>Employee Safety</li>
         <li>Crisis Management</li>
         <li>Compliance Security</li>
-      </div>
-      <a href="https://wa.me/919892000577?text=I'm interested in Corporate Security Services" class="btn btn-outline" style="margin-top: 20px;">
+      </ul>
+      <a href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27m%20interested%20in%20Corporate%20Security%20Services." class="btn btn-outline" style="margin-top: 20px;">
         <i class="fas fa-info-circle"></i> Learn More
       </a>
     </div>
 
     <div class="service-card">
-      <div class="service-icon">
-        <i class="fas fa-calendar-alt"></i>
-      </div>
+      <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
       <h3>Event Security</h3>
       <p>Comprehensive security for private parties, corporate events, concerts, and high-profile gatherings.</p>
-      <div class="service-features">
+      <ul class="service-features">
         <li>Crowd Management</li>
         <li>VIP Protection</li>
         <li>Access Control</li>
         <li>Emergency Planning</li>
         <li>Rapid Response Teams</li>
-      </div>
-      <a href="https://wa.me/919892000577?text=I'm interested in Event Security Services" class="btn btn-outline" style="margin-top: 20px;">
+      </ul>
+      <a href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27m%20interested%20in%20Event%20Security%20Services." class="btn btn-outline" style="margin-top: 20px;">
         <i class="fas fa-info-circle"></i> Learn More
       </a>
     </div>
 
     <div class="service-card">
-      <div class="service-icon">
-        <i class="fas fa-camera"></i>
-      </div>
+      <div class="service-icon"><i class="fas fa-camera"></i></div>
       <h3>CCTV & Surveillance</h3>
       <p>Advanced security technology including CCTV installation, burglar alarms, and centralized monitoring.</p>
-      <div class="service-features">
+      <ul class="service-features">
         <li>CCTV Installation</li>
         <li>Burglar Alarm Systems</li>
         <li>Centralized Monitoring</li>
         <li>Remote Surveillance</li>
         <li>Intrusion Detection</li>
-      </div>
-      <a href="https://wa.me/919892000577?text=I'm interested in CCTV & Surveillance Services" class="btn btn-outline" style="margin-top: 20px;">
+      </ul>
+      <a href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27m%20interested%20in%20CCTV%20%26%20Surveillance%20Services." class="btn btn-outline" style="margin-top: 20px;">
         <i class="fas fa-info-circle"></i> Learn More
       </a>
     </div>
@@ -1071,9 +1186,7 @@ footer {
 
   <div class="features-grid">
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-sitemap"></i>
-      </div>
+      <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
       <h3>Structured Security Framework</h3>
       <p>
         Every deployment follows our proven 7-layer protection model — from initial risk assessment
@@ -1082,9 +1195,7 @@ footer {
     </div>
 
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-user-tie"></i>
-      </div>
+      <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
       <h3>Supervisor-Led Teams</h3>
       <p>
         Dedicated supervisors conduct regular checks, enforce SOPs, and remain accountable
@@ -1093,9 +1204,7 @@ footer {
     </div>
 
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-clock"></i>
-      </div>
+      <div class="feature-icon"><i class="fas fa-clock"></i></div>
       <h3>24×7 Operations Center</h3>
       <p>
         Continuous monitoring and rapid escalation ensure incidents are detected early
@@ -1104,9 +1213,7 @@ footer {
     </div>
 
     <div class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-bolt"></i>
-      </div>
+      <div class="feature-icon"><i class="fas fa-bolt"></i></div>
       <h3>Rapid Incident Response</h3>
       <p>
         Defined response protocols and trained personnel minimize risk, damage,
@@ -1250,8 +1357,9 @@ footer {
 <section class="container cta-block">
   <h2>Ready to Transform Your Security?</h2>
   <p>Get a professional security assessment within 24 hours. Our experts will analyze your current setup and provide a customized 7-layer protection plan.</p>
-  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
-    <a class="btn btn-primary" href="https://wa.me/919892000577" style="padding: 16px 32px;">
+  <!-- FIX: clean cta-btns flex class, no inline margin hacks -->
+  <div class="cta-btns">
+    <a class="btn btn-primary" href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27d%20like%20a%20free%20security%20assessment%20for%20my%20property." style="padding: 16px 32px;">
       <i class="fab fa-whatsapp"></i> WhatsApp for Immediate Response
     </a>
     <a class="btn btn-outline" href="tel:+919892000577" style="padding: 16px 32px;">
@@ -1282,25 +1390,30 @@ footer {
         <p>Professional security services with a structured 7-layer protection framework for comprehensive safety solutions.</p>
         <p><i class="fas fa-envelope"></i> <a href="mailto:info@alphaseven.in" style="color: var(--gold);">info@alphaseven.in</a></p>
       </div>
-      
-      <!-- Column 2: Contact Form -->
+
+      <!-- Column 2: Contact Form — FIX: captcha enabled, loading state on submit -->
       <div>
         <h4 style="color: white; margin-bottom: 20px;">Send Us a Message</h4>
-        <form action="https://formsubmit.co/info@alphaseven.in" method="POST">
-          <input type="hidden" name="_captcha" value="false">
+        <form id="contactForm" action="https://formsubmit.co/info@alphaseven.in" method="POST">
           <input type="hidden" name="_subject" value="New Inquiry from Alpha Seven Website">
-          
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="_honey" style="display:none">
+
           <div style="margin-bottom: 12px;">
-            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+            <input type="text" name="name" placeholder="Your Name" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
           </div>
           <div style="margin-bottom: 12px;">
-            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+            <input type="email" name="email" placeholder="Your Email" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
           </div>
           <div style="margin-bottom: 12px;">
-            <input type="text" name="phone" placeholder="Phone Number" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+            <input type="text" name="phone" placeholder="Phone Number"
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
           </div>
           <div style="margin-bottom: 12px;">
-            <select name="service" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+            <select name="service" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
               <option value="">Select Service</option>
               <option value="Residential Security">Residential Security</option>
               <option value="Corporate Security">Corporate Security</option>
@@ -1310,30 +1423,34 @@ footer {
             </select>
           </div>
           <div style="margin-bottom: 12px;">
-            <textarea name="message" placeholder="Your Message" rows="3" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;"></textarea>
+            <textarea name="message" placeholder="Your Message" rows="3" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">
-            <i class="fas fa-paper-plane"></i> Send Message
+          <!-- FIX: submit button shows loading state -->
+          <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane" id="submitIcon"></i>
+            <span id="submitText"> Send Message</span>
           </button>
           <p style="font-size: 0.8rem; margin-top: 10px; color: var(--muted);">
             <i class="fas fa-lock"></i> Your information is safe with us.
           </p>
         </form>
       </div>
-      
-      <!-- Column 3: Quick Links -->
+
+      <!-- Column 3: Quick Links — FIX: added Contact link -->
       <div>
         <h4 style="color: white; margin-bottom: 20px;">Quick Links</h4>
         <p><a href="#framework" style="color: inherit;">7-Layer Framework</a></p>
         <p><a href="#services" style="color: inherit;">Our Services</a></p>
         <p><a href="#areas" style="color: inherit;">Areas We Serve</a></p>
         <p><a href="#faq" style="color: inherit;">FAQ</a></p>
+        <p><a href="#contact" style="color: inherit;">Contact Us</a></p>
         <p><a href="careers.html" style="color: inherit;">Careers</a></p>
         <p><a href="/privacy-policy.html" style="color: inherit;">Privacy Policy</a></p>
         <p><a href="/terms.html" style="color: inherit;">Terms & Conditions</a></p>
       </div>
     </div>
-    
+
     <div style="border-top: 1px solid var(--border); padding-top: 20px; text-align: center;">
       © <span id="current-year">2026</span> Alpha Seven Security Services. All rights reserved.
       <p style="margin-top: 10px; font-size: 0.9rem;">
@@ -1343,21 +1460,67 @@ footer {
   </div>
 </footer>
 
-<!-- WhatsApp Button -->
-<a class="whatsapp" href="https://wa.me/919892000577" aria-label="Chat with Alpha Seven on WhatsApp">
-  <i class="fab fa-whatsapp"></i> <span>WhatsApp Us</span>
+<!-- FIX: WhatsApp button — pre-filled message, FA icon only (no emoji ::after), pulse animation via CSS -->
+<a class="whatsapp" href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27d%20like%20a%20free%20security%20assessment%20for%20my%20property." aria-label="Chat with Alpha Seven on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span>WhatsApp Us</span>
 </a>
 
 <script>
-  // Update copyright year automatically
+  // Update copyright year
   document.getElementById('current-year').textContent = new Date().getFullYear();
-  
+
+  // =====================
+  // FIX: Hamburger menu toggle
+  // =====================
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close menu when a nav link is clicked
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // =====================
+  // FIX: Form loading state — prevent double submit, show spinner
+  // =====================
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitIcon = document.getElementById('submitIcon');
+  const submitText = document.getElementById('submitText');
+
+  contactForm.addEventListener('submit', () => {
+    submitBtn.disabled = true;
+    submitIcon.className = 'fas fa-spinner fa-spin';
+    submitText.textContent = ' Sending…';
+  });
+
+  // =====================
   // Smooth scroll for anchor links
+  // =====================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
-      
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
@@ -1368,8 +1531,10 @@ footer {
       }
     });
   });
-  
-  // Add animation to cards on scroll
+
+  // =====================
+  // Scroll-reveal animations
+  // =====================
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -1388,7 +1553,7 @@ footer {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    card.style.transitionDelay = `${index * 0.1}s`;
+    card.style.transitionDelay = `${index * 0.08}s`;
     observer.observe(card);
   });
 </script>
