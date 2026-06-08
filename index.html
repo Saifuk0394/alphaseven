@@ -348,23 +348,65 @@ header {
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
   background: 
     radial-gradient(circle at 70% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
     var(--bg);
 }
 
+/* Decorative dot-grid overlay */
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(212,175,55,0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 header::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+  top: -60px;
+  right: -60px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 65%);
   pointer-events: none;
   border-radius: 50%;
-  transform: translate(100px, -100px);
+}
+
+/* Animated glowing orb bottom-left */
+.hero-orb {
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: orb-pulse 6s ease-in-out infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Large faint shield watermark — mobile only, fills empty top space */
+.hero-shield-bg {
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
 }
 
 .hero {
@@ -745,15 +787,32 @@ footer {
    RESPONSIVE
    ===================== */
 @media (max-width: 900px) {
-  /* FIX: remove tall empty space in hero on mobile */
+  /* FIX: remove tall empty gap — let hero size to content */
   header {
     min-height: auto;
-    padding: 60px 0 40px;
+    padding-top: 40px;
+    padding-bottom: 50px;
     align-items: flex-start;
+  }
+
+  /* Show the shield watermark on mobile to fill visual space */
+  .hero-shield-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / -1;
+    margin-bottom: -10px;
+  }
+
+  .hero-shield-bg svg {
+    width: 180px;
+    height: 180px;
+    opacity: 0.18;
   }
 
   .hero {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .container {
@@ -877,7 +936,18 @@ footer {
 
 <!-- HERO -->
 <header>
+  <div class="hero-orb"></div>
   <div class="container hero">
+    <!-- Shield shown above text on mobile only -->
+    <div class="hero-shield-bg" aria-hidden="true">
+      <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L90 20 L90 50 C90 72 72 88 50 95 C28 88 10 72 10 50 L10 20 Z" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M50 18 L78 29 L78 50 C78 65 66 77 50 83 C34 77 22 65 22 50 L22 29 Z" fill="none" stroke="#d4af37" stroke-width="0.8" stroke-linejoin="round" opacity="0.5"/>
+        <rect x="40" y="52" width="20" height="15" rx="2" fill="#d4af37" opacity="0.55"/>
+        <path d="M44 52 L44 47 C44 43.7 56 43.7 56 47 L56 52" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.55"/>
+        <circle cx="50" cy="59" r="2.5" fill="#0b0f14"/>
+      </svg>
+    </div>
     <div>
       <h1>Security Is a <span>System</span><br>Not Just Guards</h1>
       <p>
