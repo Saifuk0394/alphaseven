@@ -1269,10 +1269,11 @@ footer {
 
 </main>
 
-<!-- FOOTER -->
+<!-- FOOTER WITH WORKING CONTACT FORM -->
 <footer id="contact">
   <div class="footer-container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+      <!-- Column 1: Brand -->
       <div>
         <div class="footer-logo">
           <img src="/logo.jpg" alt="Alpha Seven Logo">
@@ -1282,14 +1283,45 @@ footer {
         <p><i class="fas fa-envelope"></i> <a href="mailto:info@alphaseven.in" style="color: var(--gold);">info@alphaseven.in</a></p>
       </div>
       
+      <!-- Column 2: Contact Form -->
       <div>
-        <h4 style="color: white; margin-bottom: 20px;">Contact Info</h4>
-        <p><i class="fas fa-map-marker-alt"></i> 1090 Heera Panna Mall, Hiranandani Powai, Mumbai – 400076</p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+919892000577" style="color: inherit;">+91 9892000577</a></p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+919004991677" style="color: inherit;">+91 9004991677</a></p>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919892000577" style="color: inherit;">WhatsApp: +91 9892000577</a></p>
+        <h4 style="color: white; margin-bottom: 20px;">Send Us a Message</h4>
+        <form action="https://formsubmit.co/info@alphaseven.in" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Inquiry from Alpha Seven Website">
+          
+          <div style="margin-bottom: 12px;">
+            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+          </div>
+          <div style="margin-bottom: 12px;">
+            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+          </div>
+          <div style="margin-bottom: 12px;">
+            <input type="text" name="phone" placeholder="Phone Number" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+          </div>
+          <div style="margin-bottom: 12px;">
+            <select name="service" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;">
+              <option value="">Select Service</option>
+              <option value="Residential Security">Residential Security</option>
+              <option value="Corporate Security">Corporate Security</option>
+              <option value="Event Security">Event Security</option>
+              <option value="CCTV & Surveillance">CCTV & Surveillance</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 12px;">
+            <textarea name="message" placeholder="Your Message" rows="3" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--panel); color: #fff;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          <p style="font-size: 0.8rem; margin-top: 10px; color: var(--muted);">
+            <i class="fas fa-lock"></i> Your information is safe with us.
+          </p>
+        </form>
       </div>
       
+      <!-- Column 3: Quick Links -->
       <div>
         <h4 style="color: white; margin-bottom: 20px;">Quick Links</h4>
         <p><a href="#framework" style="color: inherit;">7-Layer Framework</a></p>
