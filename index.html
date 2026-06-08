@@ -242,12 +242,29 @@ p {
   color: var(--gold);
 }
 
-/* HERO */
+/* HERO - Enhanced with visual depth */
 header {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, .18), transparent 60%);
+  position: relative;
+  background: 
+    radial-gradient(circle at 70% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    var(--bg);
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(100px, -100px);
 }
 
 .hero {
@@ -255,6 +272,8 @@ header {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 50px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -269,8 +288,8 @@ h1 span {
 /* TRUST STRIP */
 .trust-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
   background: #0f1622;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -711,7 +730,7 @@ footer {
 <!-- Main Content -->
 <main id="main-content">
 
-<!-- HERO -->
+<!-- HERO - Now visually balanced -->
 <header>
   <div class="container hero">
     <div>
@@ -721,26 +740,53 @@ footer {
         multi-layer protection framework designed to prevent, detect, and respond.
         Our 7-layer approach ensures comprehensive coverage for residential, corporate, and event security.
       </p>
-      <a class="btn btn-primary" href="https://wa.me/919892000577" aria-label="Request Security Assessment via WhatsApp">
-        <i class="fab fa-whatsapp"></i> Request Security Assessment
-      </a>
-      <a class="btn btn-outline" href="#framework" style="margin-left: 16px;">
-        <i class="fas fa-layer-group"></i> View Our Framework
-      </a>
-      <p style="margin-top: 20px; font-size: 0.9rem;">
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;">
+        <a class="btn btn-primary" href="https://wa.me/919892000577" aria-label="Request Security Assessment via WhatsApp">
+          <i class="fab fa-whatsapp"></i> Request Assessment
+        </a>
+        <a class="btn btn-outline" href="#framework">
+          <i class="fas fa-layer-group"></i> View Framework
+        </a>
+      </div>
+      <p style="font-size: 0.9rem;">
         <i class="fas fa-envelope"></i> <a href="mailto:info@alphaseven.in" style="color: var(--gold);">info@alphaseven.in</a>
       </p>
     </div>
 
-    <div class="card">
-      <h3><i class="fas fa-clipboard-check"></i> Operational Readiness</h3>
-      <ul aria-label="Operational readiness features">
-        <li>24×7 Supervision & Escalation</li>
-        <li>Trained & Verified Guards</li>
-        <li>Rapid Incident Response</li>
-        <li>Regular Security Audits</li>
-        <li>Real-time Reporting</li>
-      </ul>
+    <div>
+      <!-- Larger, more visual right side -->
+      <div class="card" style="padding: 40px; text-align: center; border-left: 4px solid var(--gold); margin-bottom: 20px;">
+        <div style="font-size: 3.5rem; color: var(--gold); font-weight: 700;">7</div>
+        <div style="font-size: 1.3rem; font-weight: 600;">Layers of Protection</div>
+        <div style="color: var(--muted); font-size: 0.9rem;">Integrated Security Ecosystem</div>
+        <hr style="border-color: var(--border); margin: 20px 0;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div>
+            <div style="font-size: 1.8rem; color: var(--gold);">24/7</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">Continuous Monitoring</div>
+          </div>
+          <div>
+            <div style="font-size: 1.8rem; color: var(--gold);">30min</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">Avg. Response Time</div>
+          </div>
+        </div>
+        <div style="margin-top: 20px; background: var(--gold-light); padding: 15px; border-radius: 8px;">
+          <i class="fas fa-shield-alt" style="color: var(--gold);"></i>
+          <span style="color: var(--muted); margin-left: 8px;">Licensed & Certified Security Provider</span>
+        </div>
+      </div>
+
+      <!-- Small trust grid -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+        <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: center;">
+          <i class="fas fa-user-check" style="color: var(--gold); font-size: 1.2rem;"></i>
+          <div style="font-size: 0.75rem; color: var(--muted); margin-top: 5px;">Verified Personnel</div>
+        </div>
+        <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 15px; text-align: center;">
+          <i class="fas fa-camera" style="color: var(--gold); font-size: 1.2rem;"></i>
+          <div style="font-size: 0.75rem; color: var(--muted); margin-top: 5px;">CCTV Integration</div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
