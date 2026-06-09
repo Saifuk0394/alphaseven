@@ -349,13 +349,13 @@ header {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: 
-    radial-gradient(circle at 70% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+  background:
+    radial-gradient(circle at 70% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
     radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
     var(--bg);
 }
 
-/* Decorative dot-grid overlay */
+/* Dot grid */
 header::before {
   content: '';
   position: absolute;
@@ -373,12 +373,12 @@ header::after {
   right: -60px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 65%);
   pointer-events: none;
   border-radius: 50%;
 }
 
-/* Animated glowing orb bottom-left */
+/* Glowing orb bottom-left */
 .hero-orb {
   position: absolute;
   bottom: -80px;
@@ -397,21 +397,85 @@ header::after {
   50% { transform: scale(1.15); opacity: 1; }
 }
 
-/* Large faint shield watermark — mobile only, fills empty top space */
+/* Desktop animated SVG panel */
+.hero-svg-panel {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46%;
+  max-width: 580px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+/* Shield ring pulse */
+@keyframes ring-pulse {
+  0%, 100% { r: 46; opacity: 0.08; }
+  50% { r: 50; opacity: 0.18; }
+}
+@keyframes ring-pulse2 {
+  0%, 100% { r: 38; opacity: 0.1; }
+  50% { r: 42; opacity: 0.22; }
+}
+@keyframes shield-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes scan-line {
+  0% { transform: translateY(-90px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(90px); opacity: 0; }
+}
+@keyframes dot-blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(72px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(72px) rotate(-360deg); }
+}
+@keyframes orbit2 {
+  from { transform: rotate(120deg) translateX(72px) rotate(-120deg); }
+  to   { transform: rotate(480deg) translateX(72px) rotate(-480deg); }
+}
+@keyframes orbit3 {
+  from { transform: rotate(240deg) translateX(72px) rotate(-240deg); }
+  to   { transform: rotate(600deg) translateX(72px) rotate(-600deg); }
+}
+@keyframes dash-flow {
+  to { stroke-dashoffset: -40; }
+}
+
+.shield-group {
+  animation: shield-float 4s ease-in-out infinite;
+  transform-origin: center;
+}
+.scan { animation: scan-line 3s ease-in-out infinite; }
+.orb1 { animation: orbit 8s linear infinite; }
+.orb2 { animation: orbit2 8s linear infinite; }
+.orb3 { animation: orbit3 8s linear infinite; }
+.dash1 { animation: dash-flow 2s linear infinite; }
+.dash2 { animation: dash-flow 2.5s linear infinite; }
+.dash3 { animation: dash-flow 3s linear infinite; }
+.blink1 { animation: dot-blink 1.8s ease-in-out infinite; }
+.blink2 { animation: dot-blink 2.4s ease-in-out 0.6s infinite; }
+.blink3 { animation: dot-blink 2s ease-in-out 1.2s infinite; }
+
+/* Mobile: hide desktop SVG panel, show shield in flow */
 .hero-shield-bg {
   display: none;
-  position: absolute;
-  top: 18px;
-  right: 50%;
-  transform: translateX(50%);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 1;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
   position: relative;
@@ -787,7 +851,7 @@ footer {
    RESPONSIVE
    ===================== */
 @media (max-width: 900px) {
-  /* FIX: remove tall empty gap — let hero size to content */
+  /* FIX: remove tall empty gap on mobile */
   header {
     min-height: auto;
     padding-top: 40px;
@@ -795,18 +859,18 @@ footer {
     align-items: flex-start;
   }
 
-  /* Show the shield watermark on mobile to fill visual space */
+  /* Hide large desktop SVG on mobile */
+  .hero-svg-panel {
+    display: none;
+  }
+
+  /* Show compact shield on mobile */
   .hero-shield-bg {
     display: flex;
     justify-content: center;
     align-items: center;
     grid-column: 1 / -1;
     margin-bottom: -10px;
-  }
-
-  .hero-shield-bg svg {
-    width: 180px;
-    height: 180px;
     opacity: 0.18;
   }
 
@@ -819,12 +883,10 @@ footer {
     padding: 60px 20px;
   }
 
-  /* FIX: hide timeline vertical line on mobile — it misaligns */
   .layers-container:before {
     display: none;
   }
 
-  /* FIX: stack layer rows cleanly */
   .layer-row {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -937,17 +999,99 @@ footer {
 <!-- HERO -->
 <header>
   <div class="hero-orb"></div>
+
+  <!-- Desktop animated SVG security graphic -->
+  <div class="hero-svg-panel" aria-hidden="true">
+    <svg viewBox="0 0 300 340" width="480" height="480" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <!-- Outer pulse rings -->
+      <circle cx="150" cy="170" r="130" stroke="#d4af37" stroke-width="0.5" opacity="0.08"/>
+      <circle cx="150" cy="170" r="110" stroke="#d4af37" stroke-width="0.6" opacity="0.1"/>
+      <circle cx="150" cy="170" r="90"  stroke="#d4af37" stroke-width="0.8" opacity="0.13"/>
+
+      <!-- Dashed orbit circle -->
+      <circle cx="150" cy="170" r="72" stroke="#d4af37" stroke-width="1" stroke-dasharray="6 4" opacity="0.25" class="dash1"/>
+
+      <!-- Orbiting nodes -->
+      <g style="transform-origin: 150px 170px;">
+        <circle class="orb1" cx="150" cy="170" r="5" fill="#d4af37" opacity="0.7"/>
+      </g>
+      <g style="transform-origin: 150px 170px;">
+        <circle class="orb2" cx="150" cy="170" r="4" fill="#3b82f6" opacity="0.7"/>
+      </g>
+      <g style="transform-origin: 150px 170px;">
+        <circle class="orb3" cx="150" cy="170" r="4.5" fill="#d4af37" opacity="0.5"/>
+      </g>
+
+      <!-- Main shield -->
+      <g class="shield-group" style="transform-origin: 150px 170px;">
+        <!-- Shield outer -->
+        <path d="M150 60 L222 88 L222 155 C222 200 190 232 150 248 C110 232 78 200 78 155 L78 88 Z"
+          fill="rgba(18,24,34,0.95)" stroke="#d4af37" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Shield inner -->
+        <path d="M150 80 L206 104 L206 155 C206 192 180 218 150 232 C120 218 94 192 94 155 L94 104 Z"
+          fill="none" stroke="#d4af37" stroke-width="1" stroke-linejoin="round" opacity="0.4"/>
+
+        <!-- Scan line inside shield (clipped) -->
+        <clipPath id="shieldClip">
+          <path d="M150 60 L222 88 L222 155 C222 200 190 232 150 248 C110 232 78 200 78 155 L78 88 Z"/>
+        </clipPath>
+        <line class="scan" x1="78" y1="155" x2="222" y2="155"
+          stroke="#d4af37" stroke-width="1.5" opacity="0.5" clip-path="url(#shieldClip)"/>
+
+        <!-- Lock body -->
+        <rect x="131" y="162" width="38" height="28" rx="4" fill="#d4af37" opacity="0.85"/>
+        <!-- Lock shackle -->
+        <path d="M139 162 L139 152 C139 143 161 143 161 152 L161 162"
+          stroke="#d4af37" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <!-- Lock keyhole -->
+        <circle cx="150" cy="174" r="5" fill="#0b0f14"/>
+        <rect x="148" y="174" width="4" height="8" rx="1" fill="#0b0f14"/>
+
+        <!-- Corner tick marks on shield -->
+        <line x1="150" y1="63" x2="150" y2="72" stroke="#d4af37" stroke-width="1.5" opacity="0.5"/>
+        <line x1="220" y1="93" x2="213" y2="97" stroke="#d4af37" stroke-width="1.5" opacity="0.5"/>
+        <line x1="80" y1="93"  x2="87"  y2="97" stroke="#d4af37" stroke-width="1.5" opacity="0.5"/>
+      </g>
+
+      <!-- Connection lines from shield to nodes -->
+      <line x1="150" y1="98" x2="150" y2="60" stroke="#d4af37" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.2" class="dash2"/>
+      <line x1="78" y1="130" x2="40" y2="110" stroke="#3b82f6" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.2" class="dash3"/>
+      <line x1="222" y1="130" x2="260" y2="110" stroke="#d4af37" stroke-width="0.6" stroke-dasharray="3 3" opacity="0.2" class="dash1"/>
+
+      <!-- Corner data nodes -->
+      <g>
+        <circle cx="40" cy="105" r="8" fill="#121822" stroke="#3b82f6" stroke-width="1.2" class="blink1"/>
+        <text x="40" y="109" text-anchor="middle" font-size="7" fill="#3b82f6" font-family="monospace">CC</text>
+      </g>
+      <g>
+        <circle cx="260" cy="105" r="8" fill="#121822" stroke="#d4af37" stroke-width="1.2" class="blink2"/>
+        <text x="260" y="109" text-anchor="middle" font-size="7" fill="#d4af37" font-family="monospace">AI</text>
+      </g>
+      <g>
+        <circle cx="150" cy="50" r="8" fill="#121822" stroke="#d4af37" stroke-width="1.2" class="blink3"/>
+        <text x="150" y="54" text-anchor="middle" font-size="7" fill="#d4af37" font-family="monospace">7L</text>
+      </g>
+
+      <!-- Status bar at bottom -->
+      <rect x="60" y="270" width="180" height="36" rx="8" fill="#121822" stroke="#1f2937" stroke-width="1"/>
+      <circle cx="80" cy="288" r="5" fill="#25D366" class="blink1"/>
+      <text x="92" y="292" font-size="9" fill="#b8c2cc" font-family="monospace">SYSTEM ACTIVE</text>
+      <text x="200" y="292" font-size="9" fill="#d4af37" font-family="monospace">24/7</text>
+    </svg>
+  </div>
+
   <div class="container hero">
-    <!-- Shield shown above text on mobile only -->
+    <!-- Mobile shield (shown only on mobile via CSS) -->
     <div class="hero-shield-bg" aria-hidden="true">
-      <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 5 L90 20 L90 50 C90 72 72 88 50 95 C28 88 10 72 10 50 L10 20 Z" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-linejoin="round"/>
-        <path d="M50 18 L78 29 L78 50 C78 65 66 77 50 83 C34 77 22 65 22 50 L22 29 Z" fill="none" stroke="#d4af37" stroke-width="0.8" stroke-linejoin="round" opacity="0.5"/>
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <path d="M50 5 L90 20 L90 50 C90 72 72 88 50 95 C28 88 10 72 10 50 L10 20 Z" fill="none" stroke="#d4af37" stroke-width="1.2"/>
+        <path d="M50 18 L78 29 L78 50 C78 65 66 77 50 83 C34 77 22 65 22 50 L22 29 Z" fill="none" stroke="#d4af37" stroke-width="0.8" opacity="0.5"/>
         <rect x="40" y="52" width="20" height="15" rx="2" fill="#d4af37" opacity="0.55"/>
         <path d="M44 52 L44 47 C44 43.7 56 43.7 56 47 L56 52" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.55"/>
         <circle cx="50" cy="59" r="2.5" fill="#0b0f14"/>
       </svg>
     </div>
+
     <div>
       <h1>Security Is a <span>System</span><br>Not Just Guards</h1>
       <p>
@@ -955,7 +1099,6 @@ footer {
         multi-layer protection framework designed to prevent, detect, and respond.
         Our 7-layer approach ensures comprehensive coverage for residential, corporate, and event security.
       </p>
-      <!-- FIX: clean flex button group, no !important hacks -->
       <div class="hero-btns">
         <a class="btn btn-primary" href="https://wa.me/919892000577?text=Hi%20Alpha%20Seven%2C%20I%27d%20like%20a%20free%20security%20assessment%20for%20my%20property." aria-label="Request Security Assessment via WhatsApp">
           <i class="fab fa-whatsapp"></i> Request Assessment
