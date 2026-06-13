@@ -291,7 +291,6 @@ input, textarea {
 @media (max-width: 800px) {
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
 }
-/* additional utility */
 .text-center { text-align: center; }
 </style>
 </head>
@@ -353,7 +352,7 @@ input, textarea {
   <!-- Corporate Security -->
   <div class="container" id="corporate"><div class="section-header"><h2>Corporate Security Solutions</h2><p>Secure Workplaces. Protect Assets. Ensure Business Continuity.</p></div><div class="services-grid"><div class="card"><i class="fas fa-building" style="font-size:36px; color:var(--gold);"></i><h3>Office Security</h3><p>Guards at entry points, reception, floors, and critical zones.</p></div><div class="card"><i class="fas fa-fingerprint" style="font-size:36px; color:var(--gold);"></i><h3>Access Control</h3><p>Strict verification for employees, visitors, vendors, contractors.</p></div><div class="card"><i class="fas fa-desktop" style="font-size:36px; color:var(--gold);"></i><h3>Front Desk Security</h3><p>Trained personnel for visitor handling, entry logs, professional conduct.</p></div><div class="card"><i class="fas fa-chart-line" style="font-size:36px; color:var(--gold);"></i><h3>Asset Protection</h3><p>Protection of company assets, equipment, documents, infrastructure.</p></div><div class="card"><i class="fas fa-fire-extinguisher" style="font-size:36px; color:var(--gold);"></i><h3>Fire & Safety Assistance</h3><p>Evacuation support, emergency response coordination.</p></div><div class="card"><i class="fas fa-calendar-alt" style="font-size:36px; color:var(--gold);"></i><h3>Event & Meeting Security</h3><p>VIP protection, crowd control for corporate events.</p></div></div></div>
 
-  <!-- CCTV & Monitoring with image -->
+  <!-- CCTV & Monitoring with uploaded cctv.png -->
   <div class="container" id="cctv">
     <div class="section-header"><h2>CCTV & Monitoring Solutions</h2><p>Real-time Surveillance. Round-the-Clock Protection.</p></div>
     <div class="grid-2">
@@ -371,9 +370,9 @@ input, textarea {
         <h3>Our Process</h3><p>Assess → Design → Install → Monitor → Alert → Respond → Review</p>
       </div>
     </div>
-    <!-- CCTV monitoring center image (replace with actual image from your brochure) -->
+    <!-- CCTV monitoring center image using uploaded cctv.png -->
     <div class="text-center" style="margin-top: 30px;">
-      <img src="/images/cctv-center.jpg" alt="24/7 CCTV Monitoring Center" style="max-width: 100%; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3);" onerror="this.style.display='none'">
+      <img src="/cctv.png" alt="24/7 CCTV Monitoring Center" style="max-width: 100%; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3);">
       <p class="section-subtitle" style="margin-top: 12px;">Our trained team monitors your premises 24/7 from our central command center.</p>
     </div>
   </div>
@@ -381,7 +380,7 @@ input, textarea {
   <!-- Why Choose Alpha Seven -->
   <div class="container"><div class="section-header"><h2>Why Choose Alpha Seven</h2><p>Professionalism. Protection. Peace of Mind.</p></div><div class="features-grid"><div class="card"><i class="fas fa-certificate" style="font-size:36px; color:var(--gold);"></i><h3>Licensed & Compliant</h3><p>PSARA Licensed agency operating as per government regulations.</p></div><div class="card"><i class="fas fa-user-tie" style="font-size:36px; color:var(--gold);"></i><h3>Supervisor-Led Operations</h3><p>Regular site inspections, performance audits, real-time supervision.</p></div><div class="card"><i class="fas fa-clock" style="font-size:36px; color:var(--gold);"></i><h3>24×7 Monitoring & Support</h3><p>Round-the-clock support and escalation system for quick action.</p></div><div class="card"><i class="fas fa-shield-virus" style="font-size:36px; color:var(--gold);"></i><h3>Preventive Approach</h3><p>Identify risks before they become threats, implement preventive measures.</p></div><div class="card"><i class="fas fa-users" style="font-size:36px; color:var(--gold);"></i><h3>Disciplined Workforce</h3><p>Personnel trained in discipline, professional conduct, high visibility.</p></div><div class="card"><i class="fas fa-handshake" style="font-size:36px; color:var(--gold);"></i><h3>Client-Centric Service</h3><p>Customized security solutions that fit your environment.</p></div></div></div>
 
-  <!-- Security Personnel with uniform images (front and back views) -->
+  <!-- Security Personnel with front.jpg and back.jpg -->
   <div class="container"><div class="section-header"><h2>Our Security Personnel</h2><p>Professional. Disciplined. Trained. Accountable.</p></div>
     <div class="grid-2">
       <div class="card">
@@ -397,16 +396,19 @@ input, textarea {
         <p><strong>Key Duties:</strong> Gate Security, Visitor Management, Regular Patrolling, Supervisor Inspection, 24×7 Monitoring.</p>
       </div>
     </div>
-    <!-- Uniform images from brochure (front and back view) -->
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 30px;">
-      <div style="text-align: center; flex: 1; min-width: 200px;">
-        <img src="/images/uniform-front.jpg" alt="Security Guard Uniform Front View" style="width: 100%; max-width: 260px; border-radius: 16px; border: 1px solid rgba(212,175,55,0.3);" onerror="this.style.display='none'">
+    <!-- Two separate uniform images: front and back views -->
+    <div class="text-center" style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+      <div style="flex: 1; min-width: 200px;">
+        <img src="/front.jpg" alt="Security Guard Uniform Front View" style="width: 100%; max-width: 300px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
         <p style="margin-top: 12px; font-weight: 500;">Front View – Professional Appearance</p>
       </div>
-      <div style="text-align: center; flex: 1; min-width: 200px;">
-        <img src="/images/uniform-back.jpg" alt="Security Guard Uniform Back View" style="width: 100%; max-width: 260px; border-radius: 16px; border: 1px solid rgba(212,175,55,0.3);" onerror="this.style.display='none'">
+      <div style="flex: 1; min-width: 200px;">
+        <img src="/back.jpg" alt="Security Guard Uniform Back View" style="width: 100%; max-width: 300px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
         <p style="margin-top: 12px; font-weight: 500;">Back View – Complete Identity & Branding</p>
       </div>
+    </div>
+    <div class="text-center" style="margin-top: 20px;">
+      <p class="section-subtitle">Our uniform represents professionalism, discipline and trust. Designed for comfort, durability and a strong professional look.</p>
     </div>
   </div>
 
