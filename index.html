@@ -77,14 +77,17 @@ p { color: var(--muted); margin-bottom: 16px; }
 }
 .card:hover { transform: translateY(-5px); border-color: var(--gold); }
 .grid-2, .services-grid, .features-grid, .awareness-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+/* Enhanced Navbar */
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(11,15,20,0.96);
+  background: rgba(11, 15, 20, 0.92);
   backdrop-filter: blur(12px);
-  padding: 16px 0;
+  padding: 12px 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 .nav-container {
   max-width: 1200px;
@@ -94,20 +97,98 @@ p { color: var(--muted); margin-bottom: 16px; }
   justify-content: space-between;
   align-items: center;
 }
-.nav-brand { display: flex; align-items: center; gap: 12px; }
-.nav-brand img { height: 44px; border-radius: 8px; }
-.nav-brand-text { font-size: 1.35rem; font-weight: 800; background: linear-gradient(135deg, #fff, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.nav-links { display: flex; gap: 28px; }
-.nav-link { color: var(--muted); font-weight: 500; transition: 0.2s; }
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.2s;
+}
+.nav-brand img {
+  height: 48px;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  border: 1px solid rgba(212,175,55,0.3);
+}
+.nav-brand-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFFFFF 0%, #d4af37 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-link {
+  color: var(--muted);
+  font-weight: 500;
+  transition: 0.2s;
+  text-decoration: none;
+}
 .nav-link:hover { color: var(--gold); }
-.hamburger { display: none; background: none; border: 1px solid var(--border); border-radius: 10px; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px; }
+.nav-links .btn-primary {
+  background: var(--gold);
+  color: #000;
+  border-radius: 40px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+.nav-links .btn-primary:hover {
+  background: #c49f2e;
+  transform: translateY(-2px);
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
 .hamburger span { width: 24px; height: 2px; background: var(--gold); }
 @media (max-width: 900px) {
   .hamburger { display: flex; }
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #0b0f14e6; backdrop-filter: blur(16px); padding: 20px; border-bottom: 1px solid var(--border); }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0b0f14e6;
+    backdrop-filter: blur(16px);
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
   .nav-links.open { display: flex; }
-  .nav-link { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .nav-link { padding: 8px 0; width: 100%; }
+  .nav-links .btn-primary { width: auto; align-self: flex-start; margin-left: 0; }
+  .nav-brand-text { font-size: 1.2rem; }
 }
+/* PSARA badge inside nav (visible on desktop) */
+.psara-badge-nav {
+  font-size: 0.7rem;
+  background: rgba(212,175,55,0.15);
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 8px;
+  color: #d4af37;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .psara-badge-nav { display: none; }
+}
+
+/* Hero & other existing styles */
 .hero-section { min-height: 85vh; display: flex; align-items: center; background: radial-gradient(circle at 20% 30%, rgba(212,175,55,0.05) 0%, transparent 50%); }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .hero-title { font-size: clamp(38px, 6vw, 54px); font-weight: 800; }
@@ -144,58 +225,37 @@ footer { background: #06090d; padding: 60px 24px 40px; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 40px; }
 input, textarea, select { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px; width: 100%; margin-bottom: 12px; color: #fff; }
 
-/* PRINT STYLES for the website itself (if someone prints the page) */
+/* Print styles */
 @media print {
   .navbar, .whatsapp, .hero-btns .btn, .download-pdf-btn, footer form, .hamburger, .cta-block .btn {
     display: none !important;
   }
-  body {
-    background: white;
-    color: black;
-  }
-  .card, .metrics-card, .psara-container {
-    border: 1px solid #ccc;
-    background: white;
-    color: black;
-  }
-  .print-header {
-    display: flex !important;
-    align-items: center;
-    gap: 16px;
-    border-bottom: 2px solid #d4af37;
-    padding-bottom: 16px;
-    margin-bottom: 24px;
-  }
-  .print-header img {
-    height: 50px;
-  }
-  @page {
-    margin: 1.5cm;
-  }
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+  body { background: white; color: black; }
+  .card, .metrics-card, .psara-container { border: 1px solid #ccc; background: white; color: black; }
+  .print-header { display: flex !important; align-items: center; gap: 16px; border-bottom: 2px solid #d4af37; padding-bottom: 16px; margin-bottom: 24px; }
+  .print-header img { height: 50px; }
+  @page { margin: 1.5cm; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-.print-header {
-  display: none;
-}
+.print-header { display: none; }
 </style>
 </head>
 <body>
 
-<!-- Print header (only visible when printing the webpage) -->
+<!-- Print header (visible only when printing) -->
 <div class="print-header">
   <img src="/logo.jpg" alt="Alpha Seven Logo">
-  <div>
-    <h1>Alpha Seven Security Services</h1>
-    <p>PSARA Licensed | Government Approved | Security Is a System, Not Just Guards</p>
-  </div>
+  <div><h1>Alpha Seven Security Services</h1><p>PSARA Licensed | Government Approved | Security Is a System, Not Just Guards</p></div>
 </div>
 
+<!-- Enhanced Navbar -->
 <nav class="navbar">
   <div class="nav-container">
-    <div class="nav-brand"><img src="/logo.jpg" alt="Alpha Seven Logo"><span class="nav-brand-text">Alpha Seven</span></div>
+    <div class="nav-brand">
+      <img src="/logo.jpg" alt="Alpha Seven Security Logo" onerror="this.src='https://via.placeholder.com/48?text=AS'">
+      <span class="nav-brand-text">ALPHA SEVEN</span>
+      <span class="psara-badge-nav">PSARA Licensed</span>
+    </div>
     <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navLinks">
       <a href="#home" class="nav-link">Home</a>
@@ -203,9 +263,10 @@ input, textarea, select { background: var(--panel); border: 1px solid var(--bord
       <a href="#residential" class="nav-link">Residential</a>
       <a href="#corporate" class="nav-link">Corporate</a>
       <a href="#cctv" class="nav-link">CCTV</a>
-      <a href="#framework" class="nav-link">7-Layer</a>
+      <a href="#framework" class="nav-link">7‑Layer</a>
       <a href="careers.html" class="nav-link">Careers</a>
       <a href="#contact" class="nav-link">Contact</a>
+      <a href="https://wa.me/919892000577" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Get Quote</a>
     </div>
   </div>
 </nav>
@@ -220,8 +281,8 @@ input, textarea, select { background: var(--panel); border: 1px solid var(--bord
         <div class="hero-btns" style="display: flex; gap: 16px; margin: 28px 0;">
           <a class="btn btn-primary" href="https://wa.me/919892000577"><i class="fab fa-whatsapp"></i> Free Assessment</a>
           <a class="btn btn-outline" href="#framework"><i class="fas fa-layer-group"></i> View Framework</a>
-          <!-- DIRECT PDF DOWNLOAD BUTTON -->
-          <a class="btn btn-primary download-pdf-btn" href="/brochure.pdf" download="Alpha_Seven_Brochure.pdf"><i class="fas fa-download"></i> Download Brochure (PDF)</a>
+          <!-- Direct PDF download - change href to your PDF filename (e.g., /1.pdf or /brochure.pdf) -->
+          <a class="btn btn-primary download-pdf-btn" href="/1.pdf" download="Alpha_Seven_Brochure.pdf"><i class="fas fa-download"></i> Download Brochure (PDF)</a>
         </div>
       </div>
       <div class="metrics-card">
