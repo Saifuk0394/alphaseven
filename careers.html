@@ -1,58 +1,273 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b0f14">
-<title>Careers | Alpha Seven Security Services</title>
+<title>Careers | Alpha Seven Security Services | Join Our Team</title>
+<meta name="description" content="Join Alpha Seven Security – we're hiring security guards, supervisors, and CCTV technicians in Mumbai. Be part of a professional, PSARA licensed security agency.">
+<link rel="icon" href="/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
   --bg: #0b0f14;
   --panel: #121822;
   --gold: #d4af37;
+  --gold-light: rgba(212, 175, 55, 0.12);
   --muted: #b8c2cc;
   --border: #1f2937;
+  --green: #25D366;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: var(--bg); color: #fff; line-height: 1.6; }
-.container { max-width: 1200px; margin: auto; padding: 80px 20px; }
-h1, h2, h3 { margin-bottom: 14px; }
-p { color: var(--muted); margin-bottom: 14px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #fff;
+  line-height: 1.5;
+  background-image: 
+    linear-gradient(to right, rgba(212,175,55,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212,175,55,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 70px 32px;
+}
+h1, h2, h3 { margin-bottom: 16px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: clamp(28px, 4vw, 36px); }
+p { color: var(--muted); margin-bottom: 16px; }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-header h2:after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: var(--gold);
+  margin: 12px auto 0;
+  border-radius: 3px;
+}
 .btn {
-  display: inline-block; padding: 14px 26px; border-radius: 6px;
-  font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  text-decoration: none;
 }
-.btn-primary { background: var(--gold); color: #000; }
-.btn-primary:hover { background: #c19b2a; transform: translateY(-2px); }
-.btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
-.btn-outline:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
+.btn-primary { background: var(--gold); color: #000; box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
+.btn-primary:hover { background: #c49f2e; transform: translateY(-2px); }
+.btn-outline { border: 1.5px solid var(--gold); color: var(--gold); background: transparent; }
+.btn-outline:hover { background: var(--gold-light); transform: translateY(-2px); }
 .card {
-  background: var(--panel); border-radius: 12px; padding: 30px;
-  border: 1px solid var(--border); margin-bottom: 30px;
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  height: 100%;
+  text-align: left;
 }
+.card:hover { transform: translateY(-5px); border-color: var(--gold); }
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.job-card {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.job-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+.job-icon {
+  font-size: 48px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.job-title {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.job-location {
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.job-details {
+  margin: 16px 0;
+  flex-grow: 1;
+}
+.job-details ul {
+  padding-left: 20px;
+  color: var(--muted);
+}
+.job-details li {
+  margin-bottom: 8px;
+}
+.apply-btn {
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+}
+/* Navbar (same as index) */
 .navbar {
-  background: rgba(11, 15, 20, 0.95); backdrop-filter: blur(10px);
-  padding: 15px 0; border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(11, 15, 20, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
 }
 .nav-container {
-  max-width: 1200px; margin: auto; padding: 0 20px;
-  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.nav-brand { display: flex; align-items: center; gap: 12px; }
-.nav-brand img { height: 45px; border-radius: 6px; }
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+.nav-brand img {
+  height: 46px;
+  width: auto;
+  border-radius: 10px;
+}
 .nav-brand-text {
-  font-size: 1.3rem; font-weight: 700;
-  background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
 }
-.nav-links { display: flex; gap: 24px; }
-.nav-link { color: var(--muted); transition: color 0.3s ease; text-decoration: none; }
-.nav-link:hover { color: var(--gold); }
-@media (max-width: 768px) { .nav-links { display: none; } }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-link {
+  color: var(--muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+  position: relative;
+}
+.nav-link:hover {
+  color: var(--gold);
+}
+.nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.25s;
+}
+.nav-link:hover:after {
+  width: 100%;
+}
+.nav-links .btn-primary {
+  padding: 6px 20px;
+  font-size: 0.9rem;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+}
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0b0f14f2;
+    backdrop-filter: blur(16px);
+    padding: 20px;
+    gap: 16px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link { width: 100%; }
+  .nav-link:after { display: none; }
+}
+/* Footer (same as index) */
+footer { background: #06090d; padding: 50px 32px 30px; }
+.footer-container { max-width: 1400px; margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+input, textarea {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--green);
+  padding: 12px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  z-index: 99;
+  text-decoration: none;
+  color: #000;
+}
+@media (max-width: 768px) {
+  .container { padding: 50px 20px; }
+}
 </style>
 </head>
 <body>
@@ -61,78 +276,150 @@ p { color: var(--muted); margin-bottom: 14px; }
   <div class="nav-container">
     <a href="/" class="nav-brand">
       <img src="/logo.jpg" alt="Alpha Seven Logo">
-      <span class="nav-brand-text">Alpha Seven</span>
+      <span class="nav-brand-text">ALPHA SEVEN</span>
     </a>
-    <div class="nav-links">
-      <a href="/#framework" class="nav-link">Framework</a>
-      <a href="/#services" class="nav-link">Services</a>
-      <a href="/#areas" class="nav-link">Areas</a>
-      <a href="/#faq" class="nav-link">FAQ</a>
+    <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#about" class="nav-link">About</a>
+      <a href="/#residential" class="nav-link">Residential</a>
+      <a href="/#corporate" class="nav-link">Corporate</a>
+      <a href="/#cctv" class="nav-link">CCTV</a>
+      <a href="/#framework" class="nav-link">7‑Layer</a>
+      <a href="/careers.html" class="nav-link">Careers</a>
       <a href="/#contact" class="nav-link">Contact</a>
+      <a href="https://wa.me/919892000577" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Get Quote</a>
     </div>
   </div>
 </nav>
 
-<div class="container">
-  <div class="card">
-    <h1><i class="fas fa-users" style="color: var(--gold);"></i> Join Alpha Seven Security</h1>
-    <p>We're always looking for dedicated security professionals to join our team. If you're committed to excellence and want to work with a structured 7-layer protection framework, we'd love to hear from you.</p>
+<main>
+  <div class="container">
+    <!-- Hero / Header -->
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h1 style="font-size: clamp(32px, 5vw, 48px);">Join the <span style="color: var(--gold);">Alpha Seven</span> Team</h1>
+      <p style="max-width: 800px; margin: 0 auto;">We're always looking for dedicated security professionals to join our team. If you're committed to excellence and want to work with a structured 7‑layer protection framework, we'd love to hear from you.</p>
+    </div>
+
+    <!-- Open Positions Grid -->
+    <h2 class="section-header" style="margin-bottom: 30px;">Open Positions</h2>
+    <div class="job-grid">
+      <!-- Security Guard -->
+      <div class="job-card">
+        <div class="job-icon"><i class="fas fa-user-shield"></i></div>
+        <h3 class="job-title">Security Guard</h3>
+        <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai (Powai, Hiranandani, Andheri, Thane, Navi Mumbai)</div>
+        <div class="job-details">
+          <p><strong>Requirements:</strong></p>
+          <ul>
+            <li>Police verification certificate</li>
+            <li>Minimum 10th pass</li>
+            <li>Physical fitness</li>
+            <li>Basic communication skills</li>
+          </ul>
+        </div>
+        <a href="mailto:info@alphaseven.in?subject=Application for Security Guard" class="btn btn-primary apply-btn">
+          <i class="fas fa-paper-plane"></i> Apply Now
+        </a>
+      </div>
+
+      <!-- Security Supervisor -->
+      <div class="job-card">
+        <div class="job-icon"><i class="fas fa-user-tie"></i></div>
+        <h3 class="job-title">Security Supervisor</h3>
+        <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai</div>
+        <div class="job-details">
+          <p><strong>Requirements:</strong></p>
+          <ul>
+            <li>2+ years experience in security supervision</li>
+            <li>Knowledge of SOPs and incident reporting</li>
+            <li>Leadership and communication skills</li>
+          </ul>
+        </div>
+        <a href="mailto:info@alphaseven.in?subject=Application for Security Supervisor" class="btn btn-primary apply-btn">
+          <i class="fas fa-paper-plane"></i> Apply Now
+        </a>
+      </div>
+
+      <!-- CCTV Technician -->
+      <div class="job-card">
+        <div class="job-icon"><i class="fas fa-camera"></i></div>
+        <h3 class="job-title">CCTV Technician</h3>
+        <div class="job-location"><i class="fas fa-map-marker-alt"></i> Mumbai</div>
+        <div class="job-details">
+          <p><strong>Requirements:</strong></p>
+          <ul>
+            <li>Experience in CCTV installation and maintenance</li>
+            <li>Knowledge of alarm systems and access control</li>
+            <li>Diploma or certification in electronics/IT</li>
+          </ul>
+        </div>
+        <a href="mailto:info@alphaseven.in?subject=Application for CCTV Technician" class="btn btn-primary apply-btn">
+          <i class="fas fa-paper-plane"></i> Apply Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Walk-in / General Application Card -->
+    <div class="card" style="text-align: center; border-left: 4px solid var(--gold); margin-top: 20px;">
+      <i class="fas fa-envelope" style="font-size: 48px; color: var(--gold); margin-bottom: 16px; display: inline-block;"></i>
+      <h3>Send Your Resume</h3>
+      <p>Email your resume to <strong style="color: var(--gold);">info@alphaseven.in</strong> with the position name in the subject line.</p>
+      <p>Or call us at <strong>+91 9892000577</strong> for more information.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+        <a href="mailto:info@alphaseven.in" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Email Resume</a>
+        <a href="tel:+919892000577" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Us</a>
+      </div>
+    </div>
   </div>
+</main>
 
-  <h2 style="color: var(--gold);">Open Positions</h2>
-
-  <div class="card">
-    <h3><i class="fas fa-user-shield" style="color: var(--gold);"></i> Security Guard</h3>
-    <p><strong>Location:</strong> Mumbai (Powai, Hiranandani, Andheri, Thane, Navi Mumbai)</p>
-    <p><strong>Requirements:</strong></p>
-    <ul style="color: var(--muted); margin-bottom: 15px; padding-left: 20px;">
-      <li>Police verification certificate</li>
-      <li>Minimum 10th pass</li>
-      <li>Physical fitness</li>
-      <li>Basic communication skills</li>
-    </ul>
-    <a href="mailto:info@alphaseven.in?subject=Application for Security Guard" class="btn btn-primary">
-      <i class="fas fa-paper-plane"></i> Apply Now
-    </a>
+<!-- Footer (consistent with index) -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:16px;">
+          <img src="/logo.jpg" alt="Logo" style="height:48px;">
+          <span style="font-size:1.5rem; font-weight:800;">Alpha Seven</span>
+        </div>
+        <p>PSARA licensed security agency with 7-layer protection framework.</p>
+        <p><i class="fas fa-envelope"></i> info@alphaseven.in</p>
+        <p><i class="fas fa-phone-alt"></i> +91 9892000577 / +91 9004991677</p>
+        <p><i class="fas fa-certificate"></i> License: PSA/L/72/MH/2026/FEB/3/5970</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="/#residential" style="color:inherit;">Residential Security</a></p>
+        <p><a href="/#corporate" style="color:inherit;">Corporate Security</a></p>
+        <p><a href="/#cctv" style="color:inherit;">CCTV & Monitoring</a></p>
+        <p><a href="/#framework" style="color:inherit;">7-Layer Framework</a></p>
+        <p><a href="/careers.html" style="color:inherit;">Careers</a></p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <p><a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a></p>
+        <p><a href="/terms.html" style="color:inherit;">Terms & Conditions</a></p>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border); padding-top:24px; text-align:center;">
+      © <span id="year">2026</span> Alpha Seven Security Services. All rights reserved. <span style="color:var(--gold);">100% Government Approved</span>
+    </div>
   </div>
+</footer>
 
-  <div class="card">
-    <h3><i class="fas fa-user-tie" style="color: var(--gold);"></i> Security Supervisor</h3>
-    <p><strong>Location:</strong> Mumbai</p>
-    <p><strong>Requirements:</strong></p>
-    <ul style="color: var(--muted); margin-bottom: 15px; padding-left: 20px;">
-      <li>2+ years experience in security supervision</li>
-      <li>Knowledge of SOPs and incident reporting</li>
-      <li>Leadership and communication skills</li>
-    </ul>
-    <a href="mailto:info@alphaseven.in?subject=Application for Security Supervisor" class="btn btn-primary">
-      <i class="fas fa-paper-plane"></i> Apply Now
-    </a>
-  </div>
+<a class="whatsapp" href="https://wa.me/919892000577"><i class="fab fa-whatsapp fa-2x"></i><span>Chat</span></a>
 
-  <div class="card">
-    <h3><i class="fas fa-camera" style="color: var(--gold);"></i> CCTV Technician</h3>
-    <p><strong>Location:</strong> Mumbai</p>
-    <p><strong>Requirements:</strong></p>
-    <ul style="color: var(--muted); margin-bottom: 15px; padding-left: 20px;">
-      <li>Experience in CCTV installation and maintenance</li>
-      <li>Knowledge of alarm systems and access control</li>
-      <li>Diploma or certification in electronics/IT</li>
-    </ul>
-    <a href="mailto:info@alphaseven.in?subject=Application for CCTV Technician" class="btn btn-primary">
-      <i class="fas fa-paper-plane"></i> Apply Now
-    </a>
-  </div>
-
-  <div class="card" style="text-align: center; border-left: 4px solid var(--gold);">
-    <h3><i class="fas fa-envelope" style="color: var(--gold);"></i> Send Your Resume</h3>
-    <p>Email your resume to <strong style="color: var(--gold);">info@alphaseven.in</strong> with the position name in the subject line.</p>
-    <p>Or call us at <strong>+91 9892000577</strong> for more information.</p>
-    <a href="mailto:info@alphaseven.in" class="btn btn-outline" style="margin-top: 10px;">
-      <i class="fas fa-envelope"></i> Email Now
-    </a>
-  </div>
-</div>
-
+<script>
+document.getElementById('year').innerText = new Date().getFullYear();
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+if (menuBtn) {
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+}
+</script>
 </body>
 </html>
