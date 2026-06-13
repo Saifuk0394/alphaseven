@@ -140,14 +140,72 @@ p { color: var(--muted); margin-bottom: 16px; }
 footer { background: #06090d; padding: 60px 24px 40px; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 40px; }
 input, textarea, select { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px; width: 100%; margin-bottom: 12px; color: #fff; }
+
+/* PRINT STYLES - Show logo and brand at top of every printed page */
 @media print {
-  .navbar, .whatsapp, .cta-block .btn, .download-pdf-btn, footer form, .hamburger, .hero-btns { display: none; }
-  body { background: white; color: black; }
-  .card, .metrics-card, .psara-container { border: 1px solid #ccc; background: white; color: black; }
+  /* Hide interactive elements */
+  .navbar, .whatsapp, .hero-btns .btn, .download-pdf-btn, footer form, .hamburger, .cta-block .btn, .btn-primary, .btn-outline {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+    padding-top: 0;
+  }
+  .card, .metrics-card, .psara-container {
+    border: 1px solid #ccc;
+    background: white;
+    color: black;
+    box-shadow: none;
+  }
+  /* Add a print header with logo and company name */
+  .print-header {
+    display: flex !important;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  .print-header img {
+    height: 50px;
+    width: auto;
+  }
+  .print-header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #000;
+  }
+  .print-header p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+  }
+  /* Ensure the header appears on every page */
+  @page {
+    margin: 1.5cm;
+  }
+  /* Force background colors and borders to print */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+.print-header {
+  display: none; /* hidden on screen, visible in print */
 }
 </style>
 </head>
 <body>
+
+<!-- Print header (only visible when printing/PDF) -->
+<div class="print-header">
+  <img src="/logo.jpg" alt="Alpha Seven Logo" onerror="this.style.display='none'">
+  <div>
+    <h1>Alpha Seven Security Services</h1>
+    <p>PSARA Licensed | Government Approved | Security Is a System, Not Just Guards</p>
+  </div>
+</div>
 
 <nav class="navbar">
   <div class="nav-container">
