@@ -35,8 +35,17 @@ body {
   color: #fff;
   line-height: 1.5;
   scroll-behavior: smooth;
+  /* Subtle background grid pattern */
+  background-image: 
+    linear-gradient(to right, rgba(212,175,55,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212,175,55,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
-.container { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+.container {
+  max-width: 1400px;  /* WIDER from 1200px */
+  margin: 0 auto;
+  padding: 70px 32px; /* Reduced vertical spacing, increased side padding for better breathing */
+}
 h1, h2, h3 { margin-bottom: 16px; font-weight: 700; line-height: 1.2; }
 h2 { font-size: clamp(28px, 4vw, 36px); }
 p { color: var(--muted); margin-bottom: 16px; }
@@ -74,8 +83,13 @@ p { color: var(--muted); margin-bottom: 16px; }
   border: 1px solid var(--border);
   transition: all 0.3s;
   height: 100%;
+  text-align: left; /* CHANGED: cards now left-aligned for better readability */
 }
 .card:hover { transform: translateY(-5px); border-color: var(--gold); }
+/* Special case: 7-layer cards we keep centered for visual rhythm (optional) */
+.layer-card {
+  text-align: center;
+}
 .grid-2, .services-grid, .features-grid, .awareness-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 /* Navbar */
 .navbar {
@@ -88,9 +102,9 @@ p { color: var(--muted); margin-bottom: 16px; }
   border-bottom: 1px solid rgba(212, 175, 55, 0.25);
 }
 .nav-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -221,12 +235,12 @@ p { color: var(--muted); margin-bottom: 16px; }
 .metric-number { font-size: 32px; font-weight: 800; color: var(--gold); }
 .psara-bar {
   background: linear-gradient(135deg, #0a0f18, #030609);
-  padding: 40px 24px;
+  padding: 40px 32px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 .psara-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -272,8 +286,10 @@ p { color: var(--muted); margin-bottom: 16px; }
   text-decoration: none;
   color: #000;
 }
-footer { background: #06090d; padding: 50px 24px 30px; }
+footer { background: #06090d; padding: 50px 32px 30px; }
 .footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
@@ -290,9 +306,10 @@ input, textarea {
 }
 @media (max-width: 800px) {
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .container { padding: 50px 20px; }
 }
 .text-center { text-align: center; }
-/* Two‑row layout for uniform cards + images */
+/* Uniform rows */
 .uniform-row {
   display: flex;
   gap: 30px;
@@ -361,7 +378,7 @@ input, textarea {
 </nav>
 
 <main>
-  <!-- Hero -->
+  <!-- Hero Section -->
   <div class="hero-section" id="home">
     <div class="container hero-grid">
       <div>
@@ -383,23 +400,33 @@ input, textarea {
     </div>
   </div>
 
-  <!-- PSARA Bar -->
+  <!-- Full-width trust strip (new element to break centered rhythm) -->
+  <div style="background: rgba(212,175,55,0.05); border-top: 1px solid rgba(212,175,55,0.15); border-bottom: 1px solid rgba(212,175,55,0.15); padding: 20px 0; margin: 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; text-align: center; padding: 0 20px;">
+      <span><i class="fas fa-check-circle" style="color: var(--gold);"></i> PSARA Licensed</span>
+      <span><i class="fas fa-check-circle" style="color: var(--gold);"></i> 100% Government Approved</span>
+      <span><i class="fas fa-check-circle" style="color: var(--gold);"></i> Trained & Verified Personnel</span>
+      <span><i class="fas fa-check-circle" style="color: var(--gold);"></i> 24/7 Command Center</span>
+    </div>
+  </div>
+
+  <!-- PSARA License Bar (already full-width) -->
   <div class="psara-bar"><div class="psara-container"><div><i class="fas fa-gavel" style="font-size:40px; color:var(--gold);"></i></div><div><h3 style="color:var(--gold);">PSARA Licensed Security Agency</h3><p>Government of Maharashtra | Controlling Authority</p><div class="license-box">License No: PSA/L/72/MH/2026/FEB/3/5970</div></div><div class="gov-badge"><div class="big-percent">100%</div><span>Government Approved</span></div></div></div>
 
-  <!-- About Image -->
+  <!-- About Image (centered but container now wider) -->
   <div class="container" id="about">
     <div class="text-center">
       <img src="/about-graphic.png" alt="About Alpha Seven – Security is a System, Not Just Guards" style="max-width: 100%; border-radius: 24px; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
     </div>
   </div>
 
-  <!-- Residential -->
+  <!-- Residential Security -->
   <div class="container" id="residential"><div class="section-header"><h2>Residential Security Solutions</h2><p>Safe Homes. Secure Families. Peace of Mind.</p></div><div class="services-grid"><div class="card"><i class="fas fa-building" style="font-size:36px; color:var(--gold);"></i><h3>Society Security</h3><p>Trained guards at all entry/exit points for round-the-clock protection.</p></div><div class="card"><i class="fas fa-user-check" style="font-size:36px; color:var(--gold);"></i><h3>Visitor Management</h3><p>Proper verification, entry logging, visitor passes for controlled access.</p></div><div class="card"><i class="fas fa-car" style="font-size:36px; color:var(--gold);"></i><h3>Gate Management</h3><p>Efficient gate operations with vehicle verification and movement management.</p></div><div class="card"><i class="fas fa-walking" style="font-size:36px; color:var(--gold);"></i><h3>Regular Patrolling</h3><p>Scheduled patrols in common areas, parking, basements and periphery.</p></div><div class="card"><i class="fas fa-video" style="font-size:36px; color:var(--gold);"></i><h3>CCTV Surveillance</h3><p>Installation and monitoring for continuous observation and alerts.</p></div><div class="card"><i class="fas fa-bolt" style="font-size:36px; color:var(--gold);"></i><h3>Emergency Response</h3><p>Immediate action with escalation and coordination during incidents.</p></div></div><div class="card" style="margin-top:20px;"><h3>Typical Deployment Areas</h3><p><strong>Main Gate & Entry Points | Reception & Lobby | Common Areas & Gardens | Towers & Basements | Perimeter & Boundary</strong></p><p><em>Our Commitment: Your Safety is Our Responsibility – Prevent, Protect, Respond.</em></p></div></div>
 
-  <!-- Corporate -->
+  <!-- Corporate Security -->
   <div class="container" id="corporate"><div class="section-header"><h2>Corporate Security Solutions</h2><p>Secure Workplaces. Protect Assets. Ensure Business Continuity.</p></div><div class="services-grid"><div class="card"><i class="fas fa-building" style="font-size:36px; color:var(--gold);"></i><h3>Office Security</h3><p>Guards at entry points, reception, floors, and critical zones.</p></div><div class="card"><i class="fas fa-fingerprint" style="font-size:36px; color:var(--gold);"></i><h3>Access Control</h3><p>Strict verification for employees, visitors, vendors, contractors.</p></div><div class="card"><i class="fas fa-desktop" style="font-size:36px; color:var(--gold);"></i><h3>Front Desk Security</h3><p>Trained personnel for visitor handling, entry logs, professional conduct.</p></div><div class="card"><i class="fas fa-chart-line" style="font-size:36px; color:var(--gold);"></i><h3>Asset Protection</h3><p>Protection of company assets, equipment, documents, infrastructure.</p></div><div class="card"><i class="fas fa-fire-extinguisher" style="font-size:36px; color:var(--gold);"></i><h3>Fire & Safety Assistance</h3><p>Evacuation support, emergency response coordination.</p></div><div class="card"><i class="fas fa-calendar-alt" style="font-size:36px; color:var(--gold);"></i><h3>Event & Meeting Security</h3><p>VIP protection, crowd control for corporate events.</p></div></div></div>
 
-  <!-- CCTV image only -->
+  <!-- CCTV & Monitoring (image only) -->
   <div class="container" id="cctv">
     <div class="section-header"><h2>CCTV & Monitoring Solutions</h2><p>Real-time Surveillance. Round-the-Clock Protection.</p></div>
     <div class="text-center">
@@ -409,13 +436,12 @@ input, textarea {
     </div>
   </div>
 
-  <!-- Why Choose -->
+  <!-- Why Choose Alpha Seven -->
   <div class="container"><div class="section-header"><h2>Why Choose Alpha Seven</h2><p>Professionalism. Protection. Peace of Mind.</p></div><div class="features-grid"><div class="card"><i class="fas fa-certificate" style="font-size:36px; color:var(--gold);"></i><h3>Licensed & Compliant</h3><p>PSARA Licensed agency operating as per government regulations.</p></div><div class="card"><i class="fas fa-user-tie" style="font-size:36px; color:var(--gold);"></i><h3>Supervisor-Led Operations</h3><p>Regular site inspections, performance audits, real-time supervision.</p></div><div class="card"><i class="fas fa-clock" style="font-size:36px; color:var(--gold);"></i><h3>24×7 Monitoring & Support</h3><p>Round-the-clock support and escalation system for quick action.</p></div><div class="card"><i class="fas fa-shield-virus" style="font-size:36px; color:var(--gold);"></i><h3>Preventive Approach</h3><p>Identify risks before they become threats, implement preventive measures.</p></div><div class="card"><i class="fas fa-users" style="font-size:36px; color:var(--gold);"></i><h3>Disciplined Workforce</h3><p>Personnel trained in discipline, professional conduct, high visibility.</p></div><div class="card"><i class="fas fa-handshake" style="font-size:36px; color:var(--gold);"></i><h3>Client-Centric Service</h3><p>Customized security solutions that fit your environment.</p></div></div></div>
 
-  <!-- Security Personnel with side‑by‑side rows -->
+  <!-- Security Personnel with side‑by‑side rows (already left-aligned cards) -->
   <div class="container">
     <div class="section-header"><h2>Our Security Personnel</h2><p>Professional. Disciplined. Trained. Accountable.</p></div>
-    
     <!-- Row 1: Uniformed Excellence card + Front image -->
     <div class="uniform-row">
       <div class="card">
@@ -435,7 +461,6 @@ input, textarea {
         <p>Front View – Professional Appearance</p>
       </div>
     </div>
-
     <!-- Row 2: Uniform Features card + Back image -->
     <div class="uniform-row">
       <div class="card">
@@ -452,32 +477,32 @@ input, textarea {
     </div>
   </div>
 
-  <!-- 7‑Layer Framework (card grid) -->
+  <!-- 7-Layer Framework (cards are left-aligned except we keep them centered for visual consistency) -->
   <div class="container" id="framework">
     <div class="section-header"><h2>The Alpha Seven 7‑Layer Protection Framework</h2><p>A systematic approach to complete security – prevention, detection, response, and continuous improvement.</p></div>
     <div class="layers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">01</div><i class="fas fa-clipboard-list" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Risk Assessment</h3><p>Identify vulnerabilities, assess threats, and create a customised security plan tailored to your environment.</p></div>
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">02</div><i class="fas fa-users" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Trained Personnel</h3><p>Background‑verified, professionally trained guards who are alert, disciplined, and accountable.</p></div>
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">03</div><i class="fas fa-video" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Surveillance Technology</h3><p>CCTV, alarms, access control systems – integrated for real‑time awareness and incident detection.</p></div>
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">04</div><i class="fas fa-door-closed" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Access Governance</h3><p>Strict entry control, visitor management, and permission‑based access to prevent unauthorised entry.</p></div>
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">05</div><i class="fas fa-walking" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Monitoring & Patrol</h3><p>Regular scheduled patrols, random checks, and supervisor oversight for a visible security presence.</p></div>
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">06</div><i class="fas fa-bolt" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Incident Response</h3><p>Rapid, structured response protocols to handle emergencies with minimal impact and effective coordination.</p></div>
-      <div class="card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">07</div><i class="fas fa-chart-line" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Continuous Oversight</h3><p>Ongoing evaluation, performance audits, and process improvements to maintain the highest security standards.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">01</div><i class="fas fa-clipboard-list" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Risk Assessment</h3><p>Identify vulnerabilities, assess threats, and create a customised security plan tailored to your environment.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">02</div><i class="fas fa-users" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Trained Personnel</h3><p>Background‑verified, professionally trained guards who are alert, disciplined, and accountable.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">03</div><i class="fas fa-video" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Surveillance Technology</h3><p>CCTV, alarms, access control systems – integrated for real‑time awareness and incident detection.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">04</div><i class="fas fa-door-closed" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Access Governance</h3><p>Strict entry control, visitor management, and permission‑based access to prevent unauthorised entry.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">05</div><i class="fas fa-walking" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Monitoring & Patrol</h3><p>Regular scheduled patrols, random checks, and supervisor oversight for a visible security presence.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">06</div><i class="fas fa-bolt" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Incident Response</h3><p>Rapid, structured response protocols to handle emergencies with minimal impact and effective coordination.</p></div>
+      <div class="card layer-card" style="text-align: center;"><div style="background: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; font-size: 28px; color: #000;">07</div><i class="fas fa-chart-line" style="font-size: 42px; color: var(--gold); margin-bottom: 15px;"></i><h3>Continuous Oversight</h3><p>Ongoing evaluation, performance audits, and process improvements to maintain the highest security standards.</p></div>
     </div>
     <div class="text-center" style="margin-top: 40px;"><p class="section-subtitle"><strong>Seven layers, one promise – your safety is our responsibility.</strong></p></div>
   </div>
 
-  <!-- Awareness -->
+  <!-- Security Awareness -->
   <div class="container"><div class="section-header"><h2>Stay Informed. Stay Secure.</h2><p>Security awareness builds a safer tomorrow</p></div><div class="awareness-grid"><div class="card"><i class="fas fa-lightbulb" style="font-size:36px; color:var(--gold);"></i><h3>Tips for a Safer Environment</h3><ul><li><strong>Lock it. Secure it.</strong> – Always lock doors/windows</li><li><strong>Be alert. Stay aware.</strong> – Report suspicious activities</li><li><strong>Work together.</strong> – Community cooperation improves safety</li><li><strong>Follow safety protocols.</strong> – Emergency procedures</li><li><strong>Save important numbers.</strong> – Keep helpline handy</li></ul></div><div class="card"><i class="fas fa-skull-crosswalk" style="font-size:36px; color:var(--gold);"></i><h3>Types of Security Threats</h3><ul><li>Theft & Burglary</li><li>Unauthorized Access</li><li>Cyber Threats</li><li>Fire & Hazards</li><li>Natural Disasters</li></ul><h3>Emergency Preparedness</h3><p>Know exit routes, use fire extinguishers, attend drills, report incidents immediately.</p></div><div class="card"><i class="fas fa-microchip" style="font-size:36px; color:var(--gold);"></i><h3>Technology for a Safer Future</h3><p>Smart CCTV, Access Control Systems, AI-powered Analytics, Mobile Integration – real-time updates, incident reports at your fingertips.</p></div></div></div>
 
-  <!-- Process & PSARA -->
+  <!-- 7-Step Process + PSARA Info -->
   <div class="container"><div class="section-header"><h2>Our Process. Your Peace of Mind.</h2><p>A structured approach to security excellence</p></div><div class="grid-2"><div class="card"><h3>Our 7-Step Security Process</h3><ol style="margin-left:20px;"><li>Requirement Analysis</li><li>Customized Security Plan</li><li>Recruitment & Screening</li><li>Training & Induction</li><li>Deployment & Supervision</li><li>Monitoring & Reporting</li><li>Review & Improvement</li></ol><p><strong>Our Team:</strong> Disciplined, well‑trained, vigilant, alert, responsible, accountable, quick to respond, technology enabled.</p></div><div class="card"><i class="fas fa-gavel" style="font-size:36px; color:var(--gold);"></i><h3>Important Things You Should Know</h3><p><strong>What is PSARA?</strong> – Government law regulating private security agencies in India.<br><strong>Verify your security</strong> – Always hire a PSARA licensed agency.<br><strong>Trained & Verified Staff</strong> – Strict background verification.<br><strong>Safety is a shared responsibility.</strong></p><p><strong>PSARA License No.:</strong> PSA/L/72/MH/2026/FEB/3/5970</p></div></div></div>
 
-  <!-- CTA -->
+  <!-- CTA Block -->
   <div class="container cta-block" style="background:linear-gradient(135deg,#121a26,#0a0f18); border-radius:40px; padding:60px 32px; text-align:center; margin-bottom:40px;"><h2>Ready to Transform Your Security?</h2><p>Get a free security assessment within 24 hours. Our experts will analyze your current setup and provide a customized 7-layer protection plan.</p><div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;"><a class="btn btn-primary" href="https://wa.me/919892000577"><i class="fab fa-whatsapp"></i> WhatsApp for Immediate Response</a><a class="btn btn-outline" href="tel:+919892000577"><i class="fas fa-phone-alt"></i> Call +91 9892000577</a></div></div>
 </main>
 
-<footer id="contact"><div class="footer-container" style="max-width:1200px; margin:auto;"><div class="footer-grid"><div><div style="display:flex; gap:12px; align-items:center;"><img src="/logo.jpg" alt="Logo" style="height:48px;"><span style="font-size:1.5rem; font-weight:800;">Alpha Seven</span></div><p>PSARA licensed security agency with 7-layer protection framework.</p><p><i class="fas fa-envelope"></i> info@alphaseven.in</p><p><i class="fas fa-phone-alt"></i> +91 9892000577 / +91 9004991677</p><p><i class="fas fa-certificate"></i> License: PSA/L/72/MH/2026/FEB/3/5970</p></div><div><h4>Send us a message</h4><form action="https://formsubmit.co/info@alphaseven.in" method="POST"><input type="hidden" name="_subject" value="Website Inquiry"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Email" required><textarea name="message" rows="3" placeholder="Your message"></textarea><button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button></form></div><div><h4>Quick Links</h4><p><a href="#residential" style="color:inherit;">Residential Security</a></p><p><a href="#corporate" style="color:inherit;">Corporate Security</a></p><p><a href="#cctv" style="color:inherit;">CCTV & Monitoring</a></p><p><a href="#framework" style="color:inherit;">7-Layer Framework</a></p><p><a href="careers.html" style="color:inherit;">Careers</a></p><p><a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></p><p><a href="terms.html" style="color:inherit;">Terms & Conditions</a></p><p><a href="#contact" style="color:inherit;">Contact Us</a></p></div></div><div style="border-top:1px solid var(--border); padding-top:24px; text-align:center;">© <span id="year">2026</span> Alpha Seven Security Services. All rights reserved. <span style="color:var(--gold);">100% Government Approved</span></div></div></footer>
+<footer id="contact"><div class="footer-container" style="max-width:1400px; margin:auto;"><div class="footer-grid"><div><div style="display:flex; gap:12px; align-items:center;"><img src="/logo.jpg" alt="Logo" style="height:48px;"><span style="font-size:1.5rem; font-weight:800;">Alpha Seven</span></div><p>PSARA licensed security agency with 7-layer protection framework.</p><p><i class="fas fa-envelope"></i> info@alphaseven.in</p><p><i class="fas fa-phone-alt"></i> +91 9892000577 / +91 9004991677</p><p><i class="fas fa-certificate"></i> License: PSA/L/72/MH/2026/FEB/3/5970</p></div><div><h4>Send us a message</h4><form action="https://formsubmit.co/info@alphaseven.in" method="POST"><input type="hidden" name="_subject" value="Website Inquiry"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Email" required><textarea name="message" rows="3" placeholder="Your message"></textarea><button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button></form></div><div><h4>Quick Links</h4><p><a href="#residential" style="color:inherit;">Residential Security</a></p><p><a href="#corporate" style="color:inherit;">Corporate Security</a></p><p><a href="#cctv" style="color:inherit;">CCTV & Monitoring</a></p><p><a href="#framework" style="color:inherit;">7-Layer Framework</a></p><p><a href="careers.html" style="color:inherit;">Careers</a></p><p><a href="privacy-policy.html" style="color:inherit;">Privacy Policy</a></p><p><a href="terms.html" style="color:inherit;">Terms & Conditions</a></p><p><a href="#contact" style="color:inherit;">Contact Us</a></p></div></div><div style="border-top:1px solid var(--border); padding-top:24px; text-align:center;">© <span id="year">2026</span> Alpha Seven Security Services. All rights reserved. <span style="color:var(--gold);">100% Government Approved</span></div></div></footer>
 
 <a class="whatsapp" href="https://wa.me/919892000577"><i class="fab fa-whatsapp fa-2x"></i><span>Chat</span></a>
 
