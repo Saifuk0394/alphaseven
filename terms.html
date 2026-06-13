@@ -1,92 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Terms & Conditions | Alpha Seven Security Services</title>
-<meta name="description" content="Terms and Conditions governing the use of Alpha Seven Security Services website and services.">
-
-<style>
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:#0b0f14;
-  color:#e5e7eb;
-  line-height:1.7;
-}
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:60px 20px;
-}
-h1,h2{color:#d4af37}
-p{color:#9aa4b2}
-a{color:#d4af37;text-decoration:none}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Alpha Seven Security Services</title>
+    <meta name="description" content="Terms and Conditions governing the use of Alpha Seven Security Services website and services.">
+    <link rel="icon" href="/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --panel: #121822;
+            --gold: #d4af37;
+            --gold-light: rgba(212, 175, 55, 0.12);
+            --muted: #b8c2cc;
+            --border: #1f2937;
+            --green: #25D366;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: #fff;
+            line-height: 1.5;
+            background-image: 
+                linear-gradient(to right, rgba(212,175,55,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(212,175,55,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 70px 32px;
+        }
+        h1, h2, h3 { margin-bottom: 16px; font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(32px, 5vw, 48px); color: var(--gold); }
+        h2 { font-size: clamp(24px, 4vw, 32px); margin: 40px 0 20px; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+        p { color: var(--muted); margin-bottom: 20px; }
+        ul, ol { margin-bottom: 20px; padding-left: 20px; color: var(--muted); }
+        li { margin-bottom: 8px; }
+        .section {
+            background: var(--panel);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+        .last-updated {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        /* Navbar (same as index) */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 20, 0.96);
+            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        .nav-brand img {
+            height: 46px;
+            width: auto;
+            border-radius: 10px;
+        }
+        .nav-brand-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--muted);
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.2s;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: var(--gold);
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.25s;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .nav-links .btn-primary {
+            background: var(--gold);
+            color: #000;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+        .nav-links .btn-primary:hover {
+            background: #c49f2e;
+            transform: translateY(-2px);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+        }
+        @media (max-width: 900px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0b0f14f2;
+                backdrop-filter: blur(16px);
+                padding: 20px;
+                gap: 16px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-link { width: 100%; }
+            .nav-link:after { display: none; }
+        }
+        /* Footer (same as index) */
+        footer {
+            background: #06090d;
+            padding: 50px 32px 30px;
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: var(--green);
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            z-index: 99;
+            text-decoration: none;
+            color: #000;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 50px 20px; }
+        }
+    </style>
 </head>
-
 <body>
 
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-brand">
+            <img src="/logo.jpg" alt="Alpha Seven Logo">
+            <span class="nav-brand-text">ALPHA SEVEN</span>
+        </a>
+        <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="navLinks">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/#about" class="nav-link">About</a>
+            <a href="/#residential" class="nav-link">Residential</a>
+            <a href="/#corporate" class="nav-link">Corporate</a>
+            <a href="/#cctv" class="nav-link">CCTV</a>
+            <a href="/#framework" class="nav-link">7‑Layer</a>
+            <a href="/careers.html" class="nav-link">Careers</a>
+            <a href="/#contact" class="nav-link">Contact</a>
+            <a href="https://wa.me/919892000577" class="btn-primary"><i class="fab fa-whatsapp"></i> Get Quote</a>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
-  <h1>Terms & Conditions</h1>
-  <p><strong>Last updated:</strong> January 2026</p>
-
-  <p>
-    These Terms & Conditions govern your use of the Alpha Seven Security Services website.
-    By accessing or using this website, you agree to be bound by these terms.
-  </p>
-
-  <h2>Use of Website</h2>
-  <p>
-    This website is intended to provide information about our security services.
-    Unauthorized use, misuse, or attempts to disrupt the website are prohibited.
-  </p>
-
-  <h2>Service Information</h2>
-  <p>
-    All service descriptions are provided for informational purposes only and
-    do not constitute a binding agreement unless formally contracted.
-  </p>
-
-  <h2>Limitation of Liability</h2>
-  <p>
-    Alpha Seven shall not be held liable for any direct or indirect damages arising
-    from the use of this website or reliance on its content.
-  </p>
-
-  <h2>External Links</h2>
-  <p>
-    This website may include links to third-party platforms such as WhatsApp.
-    Alpha Seven is not responsible for external website content or policies.
-  </p>
-
-  <h2>Intellectual Property</h2>
-  <p>
-    All content on this website, including text and design, is the property of
-    Alpha Seven Security Services and may not be reproduced without permission.
-  </p>
-
-  <h2>Changes to Terms</h2>
-  <p>
-    Alpha Seven reserves the right to modify these Terms & Conditions at any time.
-    Continued use of the website constitutes acceptance of updated terms.
-  </p>
-
-  <h2>Governing Law</h2>
-  <p>
-    These terms shall be governed by the laws of India.
-  </p>
-
-  <h2>Contact Information</h2>
-  <p>
-    <strong>Alpha Seven Security Services</strong><br>
-    1090 Heera Panna Mall, Hiranandani Powai, Mumbai – 400076<br>
-    📞 +91 9892000577
-  </p>
-
-  <p><a href="/">← Back to Home</a></p>
+    <h1>Terms & Conditions</h1>
+    <p class="last-updated" style="margin-bottom: 30px; border: none; padding: 0;"><strong>Last updated:</strong> June 13, 2026</p>
+    
+    <div class="section">
+        <p>These Terms & Conditions govern your use of the Alpha Seven Security Services website. By accessing or using this website, you agree to be bound by these terms.</p>
+        
+        <h2>Use of Website</h2>
+        <p>This website is intended to provide information about our security services. Unauthorized use, misuse, or attempts to disrupt the website are prohibited.</p>
+        
+        <h2>Service Information</h2>
+        <p>All service descriptions are provided for informational purposes only and do not constitute a binding agreement unless formally contracted.</p>
+        
+        <h2>Limitation of Liability</h2>
+        <p>Alpha Seven shall not be held liable for any direct or indirect damages arising from the use of this website or reliance on its content.</p>
+        
+        <h2>External Links</h2>
+        <p>This website may include links to third-party platforms such as WhatsApp. Alpha Seven is not responsible for external website content or policies.</p>
+        
+        <h2>Intellectual Property</h2>
+        <p>All content on this website, including text and design, is the property of Alpha Seven Security Services and may not be reproduced without permission.</p>
+        
+        <h2>Changes to Terms</h2>
+        <p>Alpha Seven reserves the right to modify these Terms & Conditions at any time. Continued use of the website constitutes acceptance of updated terms.</p>
+        
+        <h2>Governing Law</h2>
+        <p>These terms shall be governed by the laws of India.</p>
+        
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+            <p><strong>Alpha Seven Security Services</strong><br>
+            1090 Heera Panna Mall, Hiranandani Powai<br>
+            Mumbai – 400076<br>
+            📞 +91 9892000577<br>
+            📧 info@alphaseven.in</p>
+        </div>
+    </div>
+    
+    <div class="last-updated">
+        <p>These Terms & Conditions were last updated on June 13, 2026.</p>
+    </div>
 </div>
 
+<footer>
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div>
+                <div style="display:flex; gap:12px; align-items:center; margin-bottom:16px;">
+                    <img src="/logo.jpg" alt="Logo" style="height:48px;">
+                    <span style="font-size:1.5rem; font-weight:800;">Alpha Seven</span>
+                </div>
+                <p>PSARA licensed security agency with 7-layer protection framework.</p>
+                <p><i class="fas fa-envelope"></i> info@alphaseven.in</p>
+                <p><i class="fas fa-phone-alt"></i> +91 9892000577 / +91 9004991677</p>
+                <p><i class="fas fa-certificate"></i> License: PSA/L/72/MH/2026/FEB/3/5970</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p><a href="/#residential" style="color:inherit;">Residential Security</a></p>
+                <p><a href="/#corporate" style="color:inherit;">Corporate Security</a></p>
+                <p><a href="/#cctv" style="color:inherit;">CCTV & Monitoring</a></p>
+                <p><a href="/#framework" style="color:inherit;">7-Layer Framework</a></p>
+                <p><a href="/careers.html" style="color:inherit;">Careers</a></p>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <p><a href="/privacy-policy.html" style="color:inherit;">Privacy Policy</a></p>
+                <p><a href="/terms.html" style="color:inherit;">Terms & Conditions</a></p>
+            </div>
+        </div>
+        <div style="border-top:1px solid var(--border); padding-top:24px; text-align:center;">
+            © <span id="year">2026</span> Alpha Seven Security Services. All rights reserved. <span style="color:var(--gold);">100% Government Approved</span>
+        </div>
+    </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919892000577"><i class="fab fa-whatsapp fa-2x"></i><span>Chat</span></a>
+
+<script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+    }
+</script>
 </body>
 </html>
