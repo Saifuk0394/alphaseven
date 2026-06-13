@@ -61,6 +61,7 @@ p { color: var(--muted); margin-bottom: 16px; }
   cursor: pointer;
   border: none;
   font-family: inherit;
+  text-decoration: none;
 }
 .btn-primary { background: var(--gold); color: #000; box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
 .btn-primary:hover { background: #c49f2e; transform: translateY(-2px); }
@@ -136,29 +137,27 @@ p { color: var(--muted); margin-bottom: 16px; }
   font-weight: 700;
   z-index: 99;
   box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+  text-decoration: none;
+  color: #000;
 }
 footer { background: #06090d; padding: 60px 24px 40px; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 40px; }
 input, textarea, select { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px; width: 100%; margin-bottom: 12px; color: #fff; }
 
-/* PRINT STYLES - Show logo and brand at top of every printed page */
+/* PRINT STYLES for the website itself (if someone prints the page) */
 @media print {
-  /* Hide interactive elements */
-  .navbar, .whatsapp, .hero-btns .btn, .download-pdf-btn, footer form, .hamburger, .cta-block .btn, .btn-primary, .btn-outline {
+  .navbar, .whatsapp, .hero-btns .btn, .download-pdf-btn, footer form, .hamburger, .cta-block .btn {
     display: none !important;
   }
   body {
     background: white;
     color: black;
-    padding-top: 0;
   }
   .card, .metrics-card, .psara-container {
     border: 1px solid #ccc;
     background: white;
     color: black;
-    box-shadow: none;
   }
-  /* Add a print header with logo and company name */
   .print-header {
     display: flex !important;
     align-items: center;
@@ -169,38 +168,25 @@ input, textarea, select { background: var(--panel); border: 1px solid var(--bord
   }
   .print-header img {
     height: 50px;
-    width: auto;
   }
-  .print-header h1 {
-    font-size: 24px;
-    margin: 0;
-    color: #000;
-  }
-  .print-header p {
-    margin: 0;
-    color: #555;
-    font-size: 14px;
-  }
-  /* Ensure the header appears on every page */
   @page {
     margin: 1.5cm;
   }
-  /* Force background colors and borders to print */
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 }
 .print-header {
-  display: none; /* hidden on screen, visible in print */
+  display: none;
 }
 </style>
 </head>
 <body>
 
-<!-- Print header (only visible when printing/PDF) -->
+<!-- Print header (only visible when printing the webpage) -->
 <div class="print-header">
-  <img src="/logo.jpg" alt="Alpha Seven Logo" onerror="this.style.display='none'">
+  <img src="/logo.jpg" alt="Alpha Seven Logo">
   <div>
     <h1>Alpha Seven Security Services</h1>
     <p>PSARA Licensed | Government Approved | Security Is a System, Not Just Guards</p>
@@ -234,7 +220,8 @@ input, textarea, select { background: var(--panel); border: 1px solid var(--bord
         <div class="hero-btns" style="display: flex; gap: 16px; margin: 28px 0;">
           <a class="btn btn-primary" href="https://wa.me/919892000577"><i class="fab fa-whatsapp"></i> Free Assessment</a>
           <a class="btn btn-outline" href="#framework"><i class="fas fa-layer-group"></i> View Framework</a>
-          <button class="btn btn-primary download-pdf-btn" id="downloadPDFBtn"><i class="fas fa-download"></i> Download Brochure (PDF)</button>
+          <!-- DIRECT PDF DOWNLOAD BUTTON -->
+          <a class="btn btn-primary download-pdf-btn" href="/brochure.pdf" download="Alpha_Seven_Brochure.pdf"><i class="fas fa-download"></i> Download Brochure (PDF)</a>
         </div>
       </div>
       <div class="metrics-card">
@@ -291,14 +278,6 @@ const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 menuBtn.addEventListener('click', () => { navLinks.classList.toggle('open'); });
 document.querySelectorAll('.nav-link').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('open'); }); });
-document.getElementById('downloadPDFBtn').addEventListener('click', () => {
-  const brochureWindow = window.open('brochure.html', '_blank');
-  if (brochureWindow) {
-    brochureWindow.onload = function() { brochureWindow.print(); };
-  } else {
-    alert('Please allow pop-ups for this site to download the brochure, or right-click the button and select "Open in new tab".');
-  }
-});
 </script>
 </body>
 </html>
