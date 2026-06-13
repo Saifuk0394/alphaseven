@@ -292,6 +292,39 @@ input, textarea {
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 .text-center { text-align: center; }
+/* Improved uniform section */
+.uniform-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+}
+.uniform-img-card {
+  flex: 1;
+  min-width: 240px;
+  text-align: center;
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  transition: 0.3s;
+}
+.uniform-img-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+}
+.uniform-img-card img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 16px;
+  border: 1px solid rgba(212,175,55,0.3);
+}
+.uniform-img-card p {
+  margin-top: 16px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
 </style>
 </head>
 <body>
@@ -343,7 +376,7 @@ input, textarea {
   <!-- PSARA License Bar -->
   <div class="psara-bar"><div class="psara-container"><div><i class="fas fa-gavel" style="font-size:40px; color:var(--gold);"></i></div><div><h3 style="color:var(--gold);">PSARA Licensed Security Agency</h3><p>Government of Maharashtra | Controlling Authority</p><div class="license-box">License No: PSA/L/72/MH/2026/FEB/3/5970</div></div><div class="gov-badge"><div class="big-percent">100%</div><span>Government Approved</span></div></div></div>
 
-  <!-- ABOUT SECTION – NOW AN IMAGE (replace with your uploaded graphic) -->
+  <!-- About Section (image) -->
   <div class="container" id="about">
     <div class="text-center">
       <img src="/about-graphic.png" alt="About Alpha Seven – Security is a System, Not Just Guards" style="max-width: 100%; border-radius: 24px; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
@@ -356,7 +389,7 @@ input, textarea {
   <!-- Corporate Security -->
   <div class="container" id="corporate"><div class="section-header"><h2>Corporate Security Solutions</h2><p>Secure Workplaces. Protect Assets. Ensure Business Continuity.</p></div><div class="services-grid"><div class="card"><i class="fas fa-building" style="font-size:36px; color:var(--gold);"></i><h3>Office Security</h3><p>Guards at entry points, reception, floors, and critical zones.</p></div><div class="card"><i class="fas fa-fingerprint" style="font-size:36px; color:var(--gold);"></i><h3>Access Control</h3><p>Strict verification for employees, visitors, vendors, contractors.</p></div><div class="card"><i class="fas fa-desktop" style="font-size:36px; color:var(--gold);"></i><h3>Front Desk Security</h3><p>Trained personnel for visitor handling, entry logs, professional conduct.</p></div><div class="card"><i class="fas fa-chart-line" style="font-size:36px; color:var(--gold);"></i><h3>Asset Protection</h3><p>Protection of company assets, equipment, documents, infrastructure.</p></div><div class="card"><i class="fas fa-fire-extinguisher" style="font-size:36px; color:var(--gold);"></i><h3>Fire & Safety Assistance</h3><p>Evacuation support, emergency response coordination.</p></div><div class="card"><i class="fas fa-calendar-alt" style="font-size:36px; color:var(--gold);"></i><h3>Event & Meeting Security</h3><p>VIP protection, crowd control for corporate events.</p></div></div></div>
 
-  <!-- CCTV & Monitoring – simplified with image -->
+  <!-- CCTV & Monitoring (image only) -->
   <div class="container" id="cctv">
     <div class="section-header"><h2>CCTV & Monitoring Solutions</h2><p>Real-time Surveillance. Round-the-Clock Protection.</p></div>
     <div class="text-center">
@@ -369,19 +402,44 @@ input, textarea {
   <!-- Why Choose Alpha Seven -->
   <div class="container"><div class="section-header"><h2>Why Choose Alpha Seven</h2><p>Professionalism. Protection. Peace of Mind.</p></div><div class="features-grid"><div class="card"><i class="fas fa-certificate" style="font-size:36px; color:var(--gold);"></i><h3>Licensed & Compliant</h3><p>PSARA Licensed agency operating as per government regulations.</p></div><div class="card"><i class="fas fa-user-tie" style="font-size:36px; color:var(--gold);"></i><h3>Supervisor-Led Operations</h3><p>Regular site inspections, performance audits, real-time supervision.</p></div><div class="card"><i class="fas fa-clock" style="font-size:36px; color:var(--gold);"></i><h3>24×7 Monitoring & Support</h3><p>Round-the-clock support and escalation system for quick action.</p></div><div class="card"><i class="fas fa-shield-virus" style="font-size:36px; color:var(--gold);"></i><h3>Preventive Approach</h3><p>Identify risks before they become threats, implement preventive measures.</p></div><div class="card"><i class="fas fa-users" style="font-size:36px; color:var(--gold);"></i><h3>Disciplined Workforce</h3><p>Personnel trained in discipline, professional conduct, high visibility.</p></div><div class="card"><i class="fas fa-handshake" style="font-size:36px; color:var(--gold);"></i><h3>Client-Centric Service</h3><p>Customized security solutions that fit your environment.</p></div></div></div>
 
-  <!-- Security Personnel with uniform images -->
-  <div class="container"><div class="section-header"><h2>Our Security Personnel</h2><p>Professional. Disciplined. Trained. Accountable.</p></div>
+  <!-- Security Personnel - improved side by side layout -->
+  <div class="container">
+    <div class="section-header"><h2>Our Security Personnel</h2><p>Professional. Disciplined. Trained. Accountable.</p></div>
     <div class="grid-2">
-      <div class="card"><i class="fas fa-user-shield" style="font-size:40px; color:var(--gold);"></i><h3>Uniformed Excellence</h3><ul><li>Sharp, neat, smart uniform – inspires confidence and trust</li><li>Chest badge, ID card, shoulder strap, sleeve patch for clear identification</li><li>Premium comfortable fabric, breathable, durable, professional look</li><li>Background verified personnel trained in security protocols</li><li>Discipline & courtesy – well‑mannered, alert professionals</li><li>Supervisor-led operations with regular monitoring</li></ul></div>
-      <div class="card"><i class="fas fa-id-card" style="font-size:40px; color:var(--gold);"></i><h3>Uniform Features</h3><p><strong>Easy Identification • Premium Quality • Comfortable Fit • Color Fast & Durable • Easy Care Washable • Long Lasting • Professional Look • Valid & Verified</strong></p><p><em>Right Person. Right Uniform. Right Protection.</em></p><p><strong>Key Duties:</strong> Gate Security, Visitor Management, Regular Patrolling, Supervisor Inspection, 24×7 Monitoring.</p></div>
+      <div class="card">
+        <i class="fas fa-user-shield" style="font-size:40px; color:var(--gold);"></i>
+        <h3>Uniformed Excellence</h3>
+        <ul style="padding-left: 20px;">
+          <li>Sharp, neat, smart uniform – inspires confidence and trust</li>
+          <li>Chest badge, ID card, shoulder strap, sleeve patch for clear identification</li>
+          <li>Premium comfortable fabric, breathable, durable, professional look</li>
+          <li>Background verified personnel trained in security protocols</li>
+          <li>Discipline & courtesy – well‑mannered, alert professionals</li>
+          <li>Supervisor-led operations with regular monitoring</li>
+        </ul>
+      </div>
+      <div class="card">
+        <i class="fas fa-id-card" style="font-size:40px; color:var(--gold);"></i>
+        <h3>Uniform Features</h3>
+        <p><strong>Easy Identification</strong> • Premium Quality • Comfortable Fit • Color Fast & Durable • Easy Care Washable • Long Lasting • Professional Look • Valid & Verified</p>
+        <p><em>Right Person. Right Uniform. Right Protection.</em></p>
+        <p><strong>Key Duties:</strong> Gate Security, Visitor Management, Regular Patrolling, Supervisor Inspection, 24×7 Monitoring.</p>
+      </div>
     </div>
-    <div class="text-center" style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-      <div style="flex: 1; min-width: 200px;"><img src="/front.jpg" alt="Front View" style="width: 100%; max-width: 300px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3);"><p style="margin-top: 12px;">Front View – Professional Appearance</p></div>
-      <div style="flex: 1; min-width: 200px;"><img src="/back.jpg" alt="Back View" style="width: 100%; max-width: 300px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.3);"><p style="margin-top: 12px;">Back View – Complete Identity & Branding</p></div>
+    <!-- Uniform images side by side with improved styling - not stretched -->
+    <div class="uniform-images">
+      <div class="uniform-img-card">
+        <img src="/front.jpg" alt="Front View of Uniform">
+        <p>Front View – Professional Appearance</p>
+      </div>
+      <div class="uniform-img-card">
+        <img src="/back.jpg" alt="Back View of Uniform">
+        <p>Back View – Complete Identity & Branding</p>
+      </div>
     </div>
   </div>
 
-  <!-- 7-Layer Framework (card grid) -->
+  <!-- 7-Layer Framework -->
   <div class="container" id="framework">
     <div class="section-header"><h2>The Alpha Seven 7‑Layer Protection Framework</h2><p>A systematic approach to complete security – prevention, detection, response, and continuous improvement.</p></div>
     <div class="layers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
