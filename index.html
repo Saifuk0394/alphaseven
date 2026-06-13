@@ -292,38 +292,48 @@ input, textarea {
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 .text-center { text-align: center; }
-/* Improved uniform section */
-.uniform-images {
+/* Two‑row layout for uniform cards + images */
+.uniform-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  margin-top: 40px;
+  gap: 30px;
+  margin-bottom: 40px;
+  align-items: stretch;
 }
-.uniform-img-card {
+.uniform-row .card {
   flex: 1;
-  min-width: 240px;
-  text-align: center;
+  margin: 0;
+}
+.uniform-row .uniform-img {
+  flex: 1;
   background: var(--panel);
   border-radius: 20px;
   padding: 20px;
   border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: 0.3s;
 }
-.uniform-img-card:hover {
+.uniform-row .uniform-img:hover {
   border-color: var(--gold);
   transform: translateY(-5px);
 }
-.uniform-img-card img {
+.uniform-row .uniform-img img {
   width: 100%;
   max-width: 280px;
   border-radius: 16px;
   border: 1px solid rgba(212,175,55,0.3);
+  margin-bottom: 12px;
 }
-.uniform-img-card p {
-  margin-top: 16px;
+.uniform-row .uniform-img p {
+  margin: 0;
   font-weight: 500;
-  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .uniform-row {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
@@ -351,7 +361,7 @@ input, textarea {
 </nav>
 
 <main>
-  <!-- Hero Section -->
+  <!-- Hero -->
   <div class="hero-section" id="home">
     <div class="container hero-grid">
       <div>
@@ -373,23 +383,23 @@ input, textarea {
     </div>
   </div>
 
-  <!-- PSARA License Bar -->
+  <!-- PSARA Bar -->
   <div class="psara-bar"><div class="psara-container"><div><i class="fas fa-gavel" style="font-size:40px; color:var(--gold);"></i></div><div><h3 style="color:var(--gold);">PSARA Licensed Security Agency</h3><p>Government of Maharashtra | Controlling Authority</p><div class="license-box">License No: PSA/L/72/MH/2026/FEB/3/5970</div></div><div class="gov-badge"><div class="big-percent">100%</div><span>Government Approved</span></div></div></div>
 
-  <!-- About Section (image) -->
+  <!-- About Image -->
   <div class="container" id="about">
     <div class="text-center">
       <img src="/about-graphic.png" alt="About Alpha Seven – Security is a System, Not Just Guards" style="max-width: 100%; border-radius: 24px; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
     </div>
   </div>
 
-  <!-- Residential Security -->
+  <!-- Residential -->
   <div class="container" id="residential"><div class="section-header"><h2>Residential Security Solutions</h2><p>Safe Homes. Secure Families. Peace of Mind.</p></div><div class="services-grid"><div class="card"><i class="fas fa-building" style="font-size:36px; color:var(--gold);"></i><h3>Society Security</h3><p>Trained guards at all entry/exit points for round-the-clock protection.</p></div><div class="card"><i class="fas fa-user-check" style="font-size:36px; color:var(--gold);"></i><h3>Visitor Management</h3><p>Proper verification, entry logging, visitor passes for controlled access.</p></div><div class="card"><i class="fas fa-car" style="font-size:36px; color:var(--gold);"></i><h3>Gate Management</h3><p>Efficient gate operations with vehicle verification and movement management.</p></div><div class="card"><i class="fas fa-walking" style="font-size:36px; color:var(--gold);"></i><h3>Regular Patrolling</h3><p>Scheduled patrols in common areas, parking, basements and periphery.</p></div><div class="card"><i class="fas fa-video" style="font-size:36px; color:var(--gold);"></i><h3>CCTV Surveillance</h3><p>Installation and monitoring for continuous observation and alerts.</p></div><div class="card"><i class="fas fa-bolt" style="font-size:36px; color:var(--gold);"></i><h3>Emergency Response</h3><p>Immediate action with escalation and coordination during incidents.</p></div></div><div class="card" style="margin-top:20px;"><h3>Typical Deployment Areas</h3><p><strong>Main Gate & Entry Points | Reception & Lobby | Common Areas & Gardens | Towers & Basements | Perimeter & Boundary</strong></p><p><em>Our Commitment: Your Safety is Our Responsibility – Prevent, Protect, Respond.</em></p></div></div>
 
-  <!-- Corporate Security -->
+  <!-- Corporate -->
   <div class="container" id="corporate"><div class="section-header"><h2>Corporate Security Solutions</h2><p>Secure Workplaces. Protect Assets. Ensure Business Continuity.</p></div><div class="services-grid"><div class="card"><i class="fas fa-building" style="font-size:36px; color:var(--gold);"></i><h3>Office Security</h3><p>Guards at entry points, reception, floors, and critical zones.</p></div><div class="card"><i class="fas fa-fingerprint" style="font-size:36px; color:var(--gold);"></i><h3>Access Control</h3><p>Strict verification for employees, visitors, vendors, contractors.</p></div><div class="card"><i class="fas fa-desktop" style="font-size:36px; color:var(--gold);"></i><h3>Front Desk Security</h3><p>Trained personnel for visitor handling, entry logs, professional conduct.</p></div><div class="card"><i class="fas fa-chart-line" style="font-size:36px; color:var(--gold);"></i><h3>Asset Protection</h3><p>Protection of company assets, equipment, documents, infrastructure.</p></div><div class="card"><i class="fas fa-fire-extinguisher" style="font-size:36px; color:var(--gold);"></i><h3>Fire & Safety Assistance</h3><p>Evacuation support, emergency response coordination.</p></div><div class="card"><i class="fas fa-calendar-alt" style="font-size:36px; color:var(--gold);"></i><h3>Event & Meeting Security</h3><p>VIP protection, crowd control for corporate events.</p></div></div></div>
 
-  <!-- CCTV & Monitoring (image only) -->
+  <!-- CCTV image only -->
   <div class="container" id="cctv">
     <div class="section-header"><h2>CCTV & Monitoring Solutions</h2><p>Real-time Surveillance. Round-the-Clock Protection.</p></div>
     <div class="text-center">
@@ -399,13 +409,15 @@ input, textarea {
     </div>
   </div>
 
-  <!-- Why Choose Alpha Seven -->
+  <!-- Why Choose -->
   <div class="container"><div class="section-header"><h2>Why Choose Alpha Seven</h2><p>Professionalism. Protection. Peace of Mind.</p></div><div class="features-grid"><div class="card"><i class="fas fa-certificate" style="font-size:36px; color:var(--gold);"></i><h3>Licensed & Compliant</h3><p>PSARA Licensed agency operating as per government regulations.</p></div><div class="card"><i class="fas fa-user-tie" style="font-size:36px; color:var(--gold);"></i><h3>Supervisor-Led Operations</h3><p>Regular site inspections, performance audits, real-time supervision.</p></div><div class="card"><i class="fas fa-clock" style="font-size:36px; color:var(--gold);"></i><h3>24×7 Monitoring & Support</h3><p>Round-the-clock support and escalation system for quick action.</p></div><div class="card"><i class="fas fa-shield-virus" style="font-size:36px; color:var(--gold);"></i><h3>Preventive Approach</h3><p>Identify risks before they become threats, implement preventive measures.</p></div><div class="card"><i class="fas fa-users" style="font-size:36px; color:var(--gold);"></i><h3>Disciplined Workforce</h3><p>Personnel trained in discipline, professional conduct, high visibility.</p></div><div class="card"><i class="fas fa-handshake" style="font-size:36px; color:var(--gold);"></i><h3>Client-Centric Service</h3><p>Customized security solutions that fit your environment.</p></div></div></div>
 
-  <!-- Security Personnel - improved side by side layout -->
+  <!-- Security Personnel with side‑by‑side rows -->
   <div class="container">
     <div class="section-header"><h2>Our Security Personnel</h2><p>Professional. Disciplined. Trained. Accountable.</p></div>
-    <div class="grid-2">
+    
+    <!-- Row 1: Uniformed Excellence card + Front image -->
+    <div class="uniform-row">
       <div class="card">
         <i class="fas fa-user-shield" style="font-size:40px; color:var(--gold);"></i>
         <h3>Uniformed Excellence</h3>
@@ -418,6 +430,14 @@ input, textarea {
           <li>Supervisor-led operations with regular monitoring</li>
         </ul>
       </div>
+      <div class="uniform-img">
+        <img src="/front.jpg" alt="Front View of Uniform">
+        <p>Front View – Professional Appearance</p>
+      </div>
+    </div>
+
+    <!-- Row 2: Uniform Features card + Back image -->
+    <div class="uniform-row">
       <div class="card">
         <i class="fas fa-id-card" style="font-size:40px; color:var(--gold);"></i>
         <h3>Uniform Features</h3>
@@ -425,21 +445,14 @@ input, textarea {
         <p><em>Right Person. Right Uniform. Right Protection.</em></p>
         <p><strong>Key Duties:</strong> Gate Security, Visitor Management, Regular Patrolling, Supervisor Inspection, 24×7 Monitoring.</p>
       </div>
-    </div>
-    <!-- Uniform images side by side with improved styling - not stretched -->
-    <div class="uniform-images">
-      <div class="uniform-img-card">
-        <img src="/front.jpg" alt="Front View of Uniform">
-        <p>Front View – Professional Appearance</p>
-      </div>
-      <div class="uniform-img-card">
+      <div class="uniform-img">
         <img src="/back.jpg" alt="Back View of Uniform">
         <p>Back View – Complete Identity & Branding</p>
       </div>
     </div>
   </div>
 
-  <!-- 7-Layer Framework -->
+  <!-- 7‑Layer Framework (card grid) -->
   <div class="container" id="framework">
     <div class="section-header"><h2>The Alpha Seven 7‑Layer Protection Framework</h2><p>A systematic approach to complete security – prevention, detection, response, and continuous improvement.</p></div>
     <div class="layers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
@@ -454,13 +467,13 @@ input, textarea {
     <div class="text-center" style="margin-top: 40px;"><p class="section-subtitle"><strong>Seven layers, one promise – your safety is our responsibility.</strong></p></div>
   </div>
 
-  <!-- Security Awareness -->
+  <!-- Awareness -->
   <div class="container"><div class="section-header"><h2>Stay Informed. Stay Secure.</h2><p>Security awareness builds a safer tomorrow</p></div><div class="awareness-grid"><div class="card"><i class="fas fa-lightbulb" style="font-size:36px; color:var(--gold);"></i><h3>Tips for a Safer Environment</h3><ul><li><strong>Lock it. Secure it.</strong> – Always lock doors/windows</li><li><strong>Be alert. Stay aware.</strong> – Report suspicious activities</li><li><strong>Work together.</strong> – Community cooperation improves safety</li><li><strong>Follow safety protocols.</strong> – Emergency procedures</li><li><strong>Save important numbers.</strong> – Keep helpline handy</li></ul></div><div class="card"><i class="fas fa-skull-crosswalk" style="font-size:36px; color:var(--gold);"></i><h3>Types of Security Threats</h3><ul><li>Theft & Burglary</li><li>Unauthorized Access</li><li>Cyber Threats</li><li>Fire & Hazards</li><li>Natural Disasters</li></ul><h3>Emergency Preparedness</h3><p>Know exit routes, use fire extinguishers, attend drills, report incidents immediately.</p></div><div class="card"><i class="fas fa-microchip" style="font-size:36px; color:var(--gold);"></i><h3>Technology for a Safer Future</h3><p>Smart CCTV, Access Control Systems, AI-powered Analytics, Mobile Integration – real-time updates, incident reports at your fingertips.</p></div></div></div>
 
-  <!-- 7-Step Process + PSARA Info -->
+  <!-- Process & PSARA -->
   <div class="container"><div class="section-header"><h2>Our Process. Your Peace of Mind.</h2><p>A structured approach to security excellence</p></div><div class="grid-2"><div class="card"><h3>Our 7-Step Security Process</h3><ol style="margin-left:20px;"><li>Requirement Analysis</li><li>Customized Security Plan</li><li>Recruitment & Screening</li><li>Training & Induction</li><li>Deployment & Supervision</li><li>Monitoring & Reporting</li><li>Review & Improvement</li></ol><p><strong>Our Team:</strong> Disciplined, well‑trained, vigilant, alert, responsible, accountable, quick to respond, technology enabled.</p></div><div class="card"><i class="fas fa-gavel" style="font-size:36px; color:var(--gold);"></i><h3>Important Things You Should Know</h3><p><strong>What is PSARA?</strong> – Government law regulating private security agencies in India.<br><strong>Verify your security</strong> – Always hire a PSARA licensed agency.<br><strong>Trained & Verified Staff</strong> – Strict background verification.<br><strong>Safety is a shared responsibility.</strong></p><p><strong>PSARA License No.:</strong> PSA/L/72/MH/2026/FEB/3/5970</p></div></div></div>
 
-  <!-- CTA Block -->
+  <!-- CTA -->
   <div class="container cta-block" style="background:linear-gradient(135deg,#121a26,#0a0f18); border-radius:40px; padding:60px 32px; text-align:center; margin-bottom:40px;"><h2>Ready to Transform Your Security?</h2><p>Get a free security assessment within 24 hours. Our experts will analyze your current setup and provide a customized 7-layer protection plan.</p><div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;"><a class="btn btn-primary" href="https://wa.me/919892000577"><i class="fab fa-whatsapp"></i> WhatsApp for Immediate Response</a><a class="btn btn-outline" href="tel:+919892000577"><i class="fas fa-phone-alt"></i> Call +91 9892000577</a></div></div>
 </main>
 
